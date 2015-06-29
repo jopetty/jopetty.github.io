@@ -2,3 +2,16 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: Helvetica;
+  background-color: #fefefe;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  height: 100vh;
+}
