@@ -169,8 +169,8 @@ footer {
 
 /* Media Queries */
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-  * {
-    font-size: 2em; }
+  div[role="main"] * {
+    font-size: 1.3em; }
 
   form input {
     width: 100%; }

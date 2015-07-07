@@ -203,8 +203,10 @@ footer {
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
 
-  * {
-    font-size: 2em;
+  div[role="main"] {
+    * {
+      font-size: 1.3em;
+    }
   }
 
   form {
