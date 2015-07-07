@@ -18,12 +18,25 @@ section {
 }
 
 section > div {
-    display: flex;
-    flex-flow: row wrap;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-align-content: center;
+  align-content: center; }
 }
 
 section > div > div > * {
-    width: 30%;   
+    width: 30%;
 }
 
 .wrapper {
@@ -35,13 +48,13 @@ section > div > div > * {
 }
 
 .wrapper:hover {
-    background-color: rgba(50, 50, 50, 0.7); 
+    background-color: rgba(50, 50, 50, 0.7);
     opacity: 1.0;
     filter: alpha(opacity=100);
 }
 
 .wrapper > * {
-    flex: 1 100%;   
+    flex: 1 100%;
 }
 
 p {
@@ -60,15 +73,27 @@ div footer {
     border-top: 1px solid #555;
     background-color: rgba(50, 50, 50, 0.9);
     min-height: 50px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
     justify-content: space-around;
+    -webkit-align-items: center;
     align-items: center;
+    -webkit-align-content: center;
+    align-content: center; }
     font-family: monospace;
     font-size: .8em;
 }
 
-a {
-    color: #ccc;
+a, a:link, a:visited {
+  color: #ccc;
 }
 
 cite {
@@ -80,9 +105,21 @@ body > footer {
     background-color: #222;
     color: #efefef;
     padding: 40px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
     justify-content: space-around;
+    -webkit-align-items: center;
     align-items: center;
+    -webkit-align-content: center;
+    align-content: center; }
 }
 
 body > footer > div > a, body > footer > div > a:link, body > footer > div > a:visited {
