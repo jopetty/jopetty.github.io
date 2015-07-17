@@ -201,11 +201,15 @@ footer {
 @media only screen
   and (min-device-width: 320px)
   and (max-device-width: 568px)
-  and (-webkit-min-device-pixel-ratio: 2) {
+  and (-webkit-min-device-pixel-ratio: 2), (max-width: 700px) {
 
   div[role="main"] {
-    p {
+    p, input, textarea {
       font-size: 1.8em;
+    }
+
+    h2 {
+      font-size: 4em;
     }
   }
 
