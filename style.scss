@@ -203,6 +203,10 @@ footer {
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2), (max-width: 700px) {
 
+  header {
+    background-color: $link-color;
+  }
+
   div[role="main"] {
     p, input, textarea {
       font-size: 1.8em;
