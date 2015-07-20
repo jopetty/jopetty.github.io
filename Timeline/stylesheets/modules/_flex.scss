@@ -1,0 +1,59 @@
+//Flexbox Parent Displays
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex-direction($direction: row) {
+  -webkit-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+@mixin flex-wrap($wrap: wrap) {
+  -webkit-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+@mixin justify-content($justify: center) {
+  -webkit-justify-content: $justify;
+  justify-content: $justify;
+}
+
+@mixin align-items($align: stretch) {
+  -webkit-align-items: $align;
+  align-items: $align;
+}
+
+@mixin align-content($align: center) {
+  -webkit-align-content: $align;
+  align-content: $align;
+}
+
+//Flexbox Child Displays
+@mixin order($order: 0) {
+  -webkit-order: $order;
+  order: $order;
+}
+
+@mixin flex-grow($grow: 0) {
+  -webkit-flex-grow: $grow;
+  flex-grow: $grow;
+}
+
+@mixin flex-shrink($shrink: 1) {
+  -webkit-flex-shrink: $shrink;
+  flex-shrink: $shrink;
+}
+
+@mixin flex-basis($basis: auto) {
+  -webkit-flex-basis: $basis;
+  flex-basis: $basis;
+}
+
+@mixin align-self($align: auto) {
+  -webkit-align-self: $align;
+  align-self: $align;
+}

@@ -1,0 +1,57 @@
+* {
+  font-family: Helvetica Neue, sans-serif;
+  color: $text_color;
+}
+
+p {
+    text-align: justify;
+    max-width: 600px;
+    line-height: 1.6em;
+    margin: 0px auto;
+}
+
+span {
+  @include flex-basis(0);
+  @include flex-grow(1);
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+cite {
+  font-family: monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+footer {
+  a, li {
+    font-family: monospace;
+  }
+}
+
+#global {
+  h2 {color: #fc6; margin: 20px;}
+
+  a {
+    color: #fc6;
+    border: 1px solid #fc6;
+    display: inline-block;
+    padding: 20px;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-decoration: none;
+    border-radius: 1px;
+    text-align: center;
+    width: 400px;
+    margin: 20px auto;
+  }
+
+  a:hover {
+    background-color: #fc6;
+    color: #222;
+  }
+}

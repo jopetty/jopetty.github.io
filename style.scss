@@ -8,6 +8,8 @@ $paragraph-text: #888888;
 
 $link-color: #385c75;
 
+$header-color: $dark-accent;
+
 /* Mixins */
 
 @mixin flex($flex-direction, $flex-wrap, $justify-content, $align-items, $align-content) {
@@ -46,8 +48,7 @@ body {
 }
 
 header {
-  background-color: $dark-accent;
-  color: $dark-accent;
+  background-color: $header-color;
   height: 100vh;
   text-align: center;
 
@@ -64,10 +65,10 @@ div[id="logo"] {
   h1 {
     width: 100%;
     text-align: center;
-    border-top: 1px solid $dark-accent;
-    border-bottom: 1px solid $dark-accent;
+    border-top: 1px solid $header-color;
+    border-bottom: 1px solid $header-color;
     padding: 10% 0;
-    color: $dark-accent;
+    color: $header-color;
   }
 
   h1[id="name"] {
@@ -202,10 +203,6 @@ footer {
   and (min-device-width: 320px)
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2), (max-width: 700px) {
-
-  header {
-    background-color: $link-color;
-  }
 
   div[role="main"] {
     p, input, textarea {
