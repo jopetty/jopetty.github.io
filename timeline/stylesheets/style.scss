@@ -1,0 +1,77 @@
+// Import flex modules
+@import "modules/flex";
+@import "modules/colors";
+@import "modules/typography";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $dark-accent;
+}
+
+header {
+  text-align: center;
+  padding: 40px;
+}
+
+section {
+
+  height: 100vh;
+  display: block;
+
+  > div {
+    @include flexbox;
+    @include flex-direction(column);
+    @include flex-wrap();
+    @include justify-content(space-between);
+    @include align-items();
+    @include align-content();
+  }
+
+  .wrapper {
+      min-height: 100vh;
+      transition: 0.5s;
+      opacity: 0.0;
+      color: $text_color;
+      @include flex-grow(1);
+  }
+
+  .wrapper:hover {
+      background-color: $section_bg_color;
+      opacity: 1.0;
+      filter: alpha(opacity=100);
+  }
+
+  footer {
+    background-color: $footer_bg_color;
+    padding: 20px;
+    border-top: solid 1px #555;
+
+    @include flexbox;
+    @include justify-content(space-around);
+    @include align-items(center);
+  }
+}
+
+.banner {
+  @include flexbox;
+  @include flex-direction(row);
+  @include flex-wrap();
+  @include justify-content(space-around);
+  @include align-items();
+  @include align-content();
+}
+
+#global {
+  section {
+    @include flexbox;
+    @include flex-direction(column);
+    @include flex-wrap();
+    @include justify-content();
+    @include align-items();
+    @include align-content();
+  }
+}
