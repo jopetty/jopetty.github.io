@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Codon Code</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script src="script.js" charset="utf-8"></script>
+    <style media="screen">
+        body {
+            background-color: #eee;
+            color: #333;
+            font-family: "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #555;
+            margin: 0;
+            padding: 10px;
+            margin-bottom: 10vh;
+            color: #eee;
+        }
+        h1, h2 {
+            font-weight: 300;
+            text-align: center;
+        }
+        form {
+            width: 55vw;
+            margin: auto;
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            background-color: #eee;
+            border-bottom: solid 3px #555;
+            font-size: 1.3em;
+            outline: none;
+            color: #555;
+            width: 100%;
+        }
+        input[type="submit"] {
+            border: 1px solid #333;
+            padding: 5px 10px;
+            border-radius: 2px;
+            background-color: #333;
+            color: #efefef;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+        #result {
+            width: 50%;
+            margin:auto;
+            margin-top: 5vh;
+            min-height: 10vh;
+            font-family: monospace;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+    </style>
+  </head>
+
+  <body>
+
+    <div role="main">
+        <header>
+        <h1>Codon Sequencer</h1>
+    </header>
+
+        <form id="cform" action="#">
+            <input type="text" name="codon" id="codon" placeholder="Type codons here . . ." onsubmit="synthesize()"/>
+            <!-- <input type="submit" value="Synthesize" onclick="synthesize()"/> -->
+        </form>
+
+        <div class="result" id="result">
+            <ol id="amino-list">
+
+            </ol>
+        </div>
+    </div>
+
+    <footer>
+    </footer>
+    <script type="text/javascript">
+        document.getElementById('codon').addEventListener('input', function (e) {
+        var target = e.target, position = target.selectionEnd, length = target.value.length;
+
+        target.value = target.value.replace(/[^\dA-Za-z]/g, '').replace(/(.{3})/g, '$1 ').trim();
+        target.selectionEnd = position += ((target.value.charAt(position - 1) === ' ' && target.value.charAt(length - 1) === ' ' && length !== target.value.length) ? 1 : 0);});
+
+        function processForm(e) {
+            if (e.preventDefault) e.preventDefault();
+            synthesize();
+            return false;
+        }
+
+        var form = document.getElementById('cform');
+        if (form.attachEvent) {
+            form.attachEvent("submit", processForm);
+        } else {
+            form.addEventListener("submit", processForm);
+        }
+    </script>
+  </body>
+</html>
