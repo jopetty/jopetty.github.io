@@ -50,7 +50,7 @@ table {
     margin:auto;
     min-height: 10vh;
     font-family: monospace;
-    font-weight: 700;
+    /*font-weight: 700;*/
     font-size: 1.2em;
 }
 
