@@ -5,6 +5,14 @@ window.onload = function declareTableDiv() {
     tableDiv = document.getElementById('punnetSquare');
 }
 
+function csort(x,y) {
+    if (x.toLowerCase() !== y.toLowerCase()) {
+        x = x.toLowerCase();
+        y = y.toLowerCase();
+    }
+    return x > y ? 1 : (x < y ? -1 : 0);
+}
+
 function evalForm() {
 
     // Declare variables
@@ -105,7 +113,9 @@ function evalForm() {
                             td.style.border = 'solid 1px #ccc';
                         } else {
                             td = tr.insertCell(j);
-                            td.innerHTML = mm[i-1] + pp[j-1];
+                            var a = mm[i-1] + pp[j-1];
+                            a = a.split('').sort(csort).join('');
+                            td.innerHTML = a;
                             td.style.textAlign = 'center';
                             td.style.border = 'solid 1px #ccc';
                         }

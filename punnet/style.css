@@ -46,12 +46,14 @@ input[type="button"] {
     margin-top: 15px;
 }
 table {
-    width: 50%;
+    width: 50vw;
     margin:auto;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
     min-height: 10vh;
     font-family: monospace;
     font-weight: 700;
     font-size: 1.2em;
+}
+
+footer {
+    height: 5vh;
 }
