@@ -55,8 +55,8 @@ function addAmino(codon) {
                             return "(Lys/K) Lysine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Asparagine");
                             return "(Asp/N) Asparagine";
                             break;
@@ -86,8 +86,8 @@ function addAmino(codon) {
                             return "(Thr/T) Threonine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Threonine");
                             return "(Thr/T) Threonine";
                             break;
@@ -118,8 +118,8 @@ function addAmino(codon) {
                             return "(Arg/R) Arginine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Serine");
                             return "(Ser/S) Serine";
                             break;
@@ -130,8 +130,8 @@ function addAmino(codon) {
                     }
                     break;
 
-                case "T":
-                case "t":
+                case "U":
+                case "u":
                     switch (codon[2]) {
                         case "A":
                         case "a":
@@ -150,8 +150,8 @@ function addAmino(codon) {
                             return "[START] (Met/M) Methionine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Isoleucine");
                             return "(Ile/I) Isoleucine";
                             break;
@@ -191,8 +191,8 @@ function addAmino(codon) {
                             return "(Gln/Q) Glutamine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Histidine");
                             return "(His/H) Histidine";
                             break;
@@ -223,8 +223,8 @@ function addAmino(codon) {
                             return "(Pro/P) Proline";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Proline");
                             return "(Pro/P) Proline";
                             break;
@@ -255,8 +255,8 @@ function addAmino(codon) {
                             return "(Arg/R) Arginine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Arginine");
                             return "(Arg/R) Arginine";
                             break;
@@ -267,8 +267,8 @@ function addAmino(codon) {
                     }
                     break;
 
-                case "T":
-                case "t":
+                case "U":
+                case "u":
                     switch (codon[2]) {
                         case "A":
                         case "a":
@@ -287,8 +287,8 @@ function addAmino(codon) {
                             return "(Leu/L) Leucine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Leucine");
                             return "(Leu/L) Leucine";
                             break;
@@ -328,8 +328,8 @@ function addAmino(codon) {
                             return "(Glu/E) Glutamic Acid";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Aspartic Acid");
                             return "(Asp/D) Aspartic Acid";
                             break;
@@ -360,8 +360,8 @@ function addAmino(codon) {
                             return "(Ala/A) Alanine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Alanine");
                             return "(Ala/A) Alanine";
                             break;
@@ -392,8 +392,8 @@ function addAmino(codon) {
                             return "(Gly/G) Glycine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Glycine");
                             return "(Gly/G) Glycine";
                             break;
@@ -404,8 +404,8 @@ function addAmino(codon) {
                     }
                     break;
 
-                case "T":
-                case "t":
+                case "U":
+                case "u":
                     switch (codon[2]) {
                         case "A":
                         case "a":
@@ -424,8 +424,8 @@ function addAmino(codon) {
                             return "(Val/V) Valine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Valine");
                             return "(Val/V) Valine";
                             break;
@@ -442,8 +442,8 @@ function addAmino(codon) {
             }
             break;
 
-        case "T":
-        case "t":
+        case "U":
+        case "u":
             switch (codon[1]) {
                 case "A":
                 case "a":
@@ -465,8 +465,8 @@ function addAmino(codon) {
                             return "[STOP] Amber";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Tyrosine");
                             return "(Tyr/Y) Tyrosine";
                             break;
@@ -498,8 +498,8 @@ function addAmino(codon) {
                             return "(Ser/S) Serine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Serine");
                             return "(Ser/S) Serine";
                             break;
@@ -530,8 +530,8 @@ function addAmino(codon) {
                             return "(Trp/W) Tryptophan";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Cysteine");
                             return "(Cys/C) Cysteine";
                             break;
@@ -542,8 +542,8 @@ function addAmino(codon) {
                     }
                     break;
 
-                case "T":
-                case "t":
+                case "U":
+                case "u":
                     switch (codon[2]) {
                         case "A":
                         case "a":
@@ -562,8 +562,8 @@ function addAmino(codon) {
                             return "(Leu/L) Leucine";
                             break;
 
-                        case "T":
-                        case "t":
+                        case "U":
+                        case "u":
                             console.log("Phenylalanine");
                             return "(Phe/F) Phenylalanine";
                             break;
