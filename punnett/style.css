@@ -57,3 +57,13 @@ table {
 footer {
     height: 5vh;
 }
+
+#back-nav {
+	position: absolute;
+	top: 18px;
+}
+#back-nav a {
+	color: #efefef;
+	margin-left: 30px;
+	text-decoration: none;
+}

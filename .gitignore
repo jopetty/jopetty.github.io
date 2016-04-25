@@ -1,0 +1,5 @@
+*.scss
+*.map
+*.scssc
+.*
+!.gitignore

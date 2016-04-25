@@ -23,6 +23,7 @@ function evalForm() {
     var pGenome = [];
     var mSubLength = true;
     var pSubLength = true;
+    var gRatio = [];
 
     if (same) {
 
@@ -118,6 +119,7 @@ function evalForm() {
                             td.innerHTML = a;
                             td.style.textAlign = 'center';
                             td.style.border = 'solid 1px #ccc';
+
                         }
                     }
                 }
