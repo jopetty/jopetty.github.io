@@ -380,7 +380,7 @@ article header > * {
 	margin-bottom: 0.3em;
 }
 
-dt, p.category-label {
+.category-label {
 	text-transform: uppercase;
 	font-size: 0.8em;
 	font-weight: bold;
@@ -390,6 +390,10 @@ dt, p.category-label {
 
 dd {
  	margin-left: 1em;
+}
+
+dt, dd {
+	margin-bottom: 1ex;
 }
 
 p.dateline {
