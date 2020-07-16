@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homepage on Jackson Petty</title>
+    <link>http://jacksonpetty.org/</link>
+    <description>Recent content in Homepage on Jackson Petty</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://jacksonpetty.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Optimal monohedral tilings of hyperbolic surfaces</title>
+      <link>http://jacksonpetty.org/publications/optimal-monohedral-tilings-of-hyperbolic-surfaces/</link>
+      <pubDate>Mon, 11 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://jacksonpetty.org/publications/optimal-monohedral-tilings-of-hyperbolic-surfaces/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Certain Hyperbolic Regular Polygonal Tiles are Isoperimetric</title>
+      <link>http://jacksonpetty.org/publications/certain-regular-hyperbolic-polygonal-tiles-are-isoperimetric/</link>
+      <pubDate>Mon, 28 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://jacksonpetty.org/publications/certain-regular-hyperbolic-polygonal-tiles-are-isoperimetric/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The optimal double bubble for density &lt;em&gt;r&lt;sup&gt;p&lt;/sup&gt;&lt;/em&gt;</title>
+      <link>http://jacksonpetty.org/publications/optimal-double-bubble-for-density-r-p/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://jacksonpetty.org/publications/optimal-double-bubble-for-density-r-p/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>If I Am Not for Myself, Then Who Will Be for Me?</title>
+      <link>http://jacksonpetty.org/essays/who-will-be-for-me/</link>
+      <pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://jacksonpetty.org/essays/who-will-be-for-me/</guid>
+      <description>A contractarian account of ethics holds that morality is the name we give to the rules of human conduct which would arise if rational parties deliberated what rules would best serve to protect people’s fundamental interests. A worthy concern with this approach arises when we consider how atypical bargainers fit into this picture. For example, while contractarianism may provide good protections for healthy, normal adults, very young children, very weak people, and those gripped by physical or mental illness cannot be considered typical, rational arbiters, and so may not have a seat at the bargaining table.</description>
+    </item>
+    
+    <item>
+      <title>Freedom, freedom, I&amp;nbsp;Can&#39;t Choose</title>
+      <link>http://jacksonpetty.org/essays/freedom/</link>
+      <pubDate>Sat, 02 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://jacksonpetty.org/essays/freedom/</guid>
+      <description>A Kantian account of ethics holds that morality rests in the nature of human freedom. A sound critique of this analysis arises if one believes that true freedom means that one may act in any way one sees fit, and thus that true morality cannot ever be based on freedom since morality requires a set of rules for how one ought to act. In this essay I will begin by furthering the claims of the objection before defending the Kantian account of morality by first justifying why human freedom is compatible with one’s actions being bound by a particular set of rules, and then arguing how morality is based in human freedom by connecting the formulation of the categorical imperative as a test of universal laws to the respect for and consideration of dignity and autonomy by the laws which the categorical imperative permits.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://jacksonpetty.org/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://jacksonpetty.org/about/</guid>
+      <description>I&amp;rsquo;m an undergraduate student at Yale University studying mathematics and linguistics. My research interests lie in theoretical syntax, computational semantics, language modeling, and semitic languages.
+Contact Information If you wish to get in touch, there are a few ways to do so. For communications concerning research or academia, please direct all inquiries to my current university email address, listed below.
+ jackson.petty@yale.edu
+ Physical mail may be sent to the following P.</description>
+    </item>
+    
+  </channel>
+</rss>

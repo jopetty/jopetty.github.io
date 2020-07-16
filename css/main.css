@@ -1,0 +1,476 @@
+/* Reset */
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+/* Fonts */
+
+@font-face {
+	font-family: 'Kepler';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/fonts/KpRoman-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Kepler';
+	font-style: italic;
+	font-weight: normal;
+	src: url('/fonts/KpRoman-Italic.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Kepler';
+	font-weight: bold;
+	src: url('/fonts/KpRoman-Semibold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Kepler Sans';
+	font-style: normal;
+	src: url('/fonts/KpSans-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Kepler Mono';
+	font-style: normal;
+	src: url('/fonts/KpMono-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Libertinus Serif';
+	font-style: normal;
+	src: url('/fonts/LibertinusSerif-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Libertinus Sans';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/fonts/LibertinusSans-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Libertinus Sans';
+	font-weight: bold;
+	font-style: normal;
+	src: url('/fonts/LibertinusSans-Bold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Libertinus Sans';
+	font-style: italic;
+	font-weight: normal;
+	src: url('/fonts/LibertinusSans-Italic.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Courier Prime Code';
+	font-style: normal;
+	src: url('/fonts/CourierPrimeCode.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Courier Prime Code';
+	font-style: italic;
+	src: url('/fonts/CourierPrimeCodeItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'IBM Plex Mono';
+	font-weight: normal;
+	src: url('/fonts/IBMPlexMono-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'IBM Plex Mono';
+	font-weight: bold;
+	src: url('/fonts/IBMPlexMono-SemiBold.ttf') format('truetype');
+}
+
+/* Root */
+:root {
+	--bg: rgb(255, 255, 248);
+	--bg-night: #1E3247;
+	--bg-night: #232a38;
+
+	--fg: rgb(30, 30, 30);
+	--fg-night: #eee;
+	--fg-night: #ddd;
+
+	--header-text: rgb(132, 108, 91);
+	--header-text-t: rgba(132, 108, 91, 0.2);
+	--header-text-night: rgb(124, 150, 168);
+	--header-text-night-t: rgb(124, 150, 168, 0.2);
+
+	--link: var(--header-text);
+	--link-bg: var(--header-text-t);
+
+	--serif-font: 'Kepler', 'Junicode', 'Garamond', 'EB Garamond', serif;
+	--sans-font:  'Libertinus Sans', system-ui, sans-serif;
+	--mono-font: 'Courier', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: var(--bg-night);
+		--fg: var(--fg-night);
+		--header-text: var(--header-text-night);
+		--header-text-t: var(--header-text-night-t);
+	}
+}
+
+/* Main */
+html {
+	background-color: var(--bg);
+}
+
+a, article a {
+	color: var(--link);
+}
+
+a:hover {
+	background-color: var(--link-bg);
+
+	/*color: var(--bg);*/
+}
+
+code {
+	letter-spacing: 0px;
+	font-family: var(--mono-font);
+	/*font-size: 0.9em;*/
+}
+
+section#wrapper {
+	margin-top: 4em;
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+aside.sidebar {
+	margin: 3ex auto;
+}
+
+header#site-header {
+	/*text-align: right;*/
+}
+
+header#site-header h1 {
+	font-size: 3em;
+	/*font-variant: small-caps;*/
+}
+
+aside.sidebar li {
+	display: inline;
+}
+
+article {
+	font-size: 1.1rem;
+	line-height: 1.7rem;
+	font-family: var(--serif-font);
+	color: var(--fg);
+}
+
+@media (min-width: 65rem) {
+	article {
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+	}
+
+	section#wrapper {
+		display: grid;
+		grid-column-gap: 5em;
+		grid-row-gap: 3em;
+		grid-template-columns: 20em 40em;
+	}
+
+	header#site-header {
+		grid-column-start: 2;
+  	/*grid-column-end: 2;*/
+  	margin-bottom: 3em;
+	}
+
+	aside.sidebar {
+		display: block;
+		text-align: right;
+		margin: 0;
+		grid-column-start: 1;
+	}
+
+	aside.sidebar li {
+		display: block;
+	}
+}
+
+header {
+	display: block;
+}
+
+aside.sidebar * {
+	font-family: var(--sans-font);
+}
+
+aside.sidebar ul {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+aside.sidebar li {
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+/*header h1, div[id="lettermark"] h1 {
+	font-size: 3em;
+}*/
+
+article h2, article h3 {
+	color: var(--link);
+}
+
+/*article#list-content h1, article#list-content h2, article#list-content h3 {
+	color: var(--fg);
+}*/
+
+h6.list-date {
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+}
+
+article h2 {
+	margin-bottom: 7pt;
+	font-size: 1.2em;
+	font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 100;
+	font-family: var(--sans-font);
+}
+
+div[id="lettermark"] h1 sup {
+	vertical-align: baseline;
+	position: relative;
+	top: -.6em;
+	font-size: 0.7em;
+}
+
+aside.sidebar a {
+	display: inline-block;
+	font-size: 1.3em;
+	text-decoration: none;
+}
+
+article > * {
+	margin-bottom: 1.2rem;
+}
+
+article sup * {
+	font-size: 0.8em;
+}
+
+article sup {
+	vertical-align: baseline;
+	position: relative;
+	top: -.4em;
+}
+
+article sup a:before {
+	content: "[";
+}
+
+article sup a:after {
+	content: "]";
+}
+
+article h1 {
+	font-size: 1.9em;
+	line-height: 1em;
+}
+
+article header .byline * {
+	font-family: var(--sans-font);
+	font-size: 0.9em;
+	margin-top: 0.5em;
+}
+
+article header {
+	margin-bottom: 1.5em;
+	padding: 0;
+}
+
+article .tt {
+	font-family: monospace;
+}
+
+article blockquote {
+	margin-left: 10pt;
+	padding-left: 20pt;
+	border-left: solid 3px var(--link);
+	font-size: 1rem;
+	line-height: 1.6rem;
+}
+
+div[class="inset"] {
+	margin-left: 10pt;
+}
+
+div[class="inset"] * {
+	font-size: 1rem;
+	font-family: var(--sans-font);
+}
+
+ol, ul {
+	/*list-style-position: inside;*/
+	margin-left: 30pt;
+}
+
+li {
+	margin-bottom: 0;
+}
+
+ol#footnotes {
+	list-style-position: inside;
+	margin-top: 40px;
+	padding-top: 10px;
+	border-top: solid 1px var(--fg);
+	font-size: smaller !important;
+}
+
+article {
+	margin-bottom: 10em;
+}
+
+article p {
+	/*letter-spacing: -0.5px;*/
+	word-spacing: 2px;
+	/*text-align: justify;*/
+}
+
+section.footnotes {
+	font-size: 1rem;
+	line-height: 1.3rem;
+	margin-top: 4em;
+}
+
+section.footnotes hr {
+	width: 30%;
+	margin-bottom: 1em;
+	border: none;
+	border-top: solid 2px var(--link);
+}
+
+section.footnotes li {
+	margin-bottom: 1rem;
+	/*list-style-position: inside;*/
+	/*list-style: hebrew;*/
+}
+
+section.footnotes ol {
+	margin-left: 20px;
+}
+
+a.footnote-backref {
+	font-family: system-ui;
+}
+
+.katex {
+	font-size: 1em !important;
+	font-family: var(--serif-font) !important;
+}
+
+.katex .mathdefault {
+	font-family: var(--serif-font) !important;
+}
+
+a.footnote-backref {
+	font-family: var(--sans-font);
+	text-decoration: none;
+	font-size: 0.8rem;
+	line-height: 0;
+	vertical-align: 0rem;
+}
+
+ul li {
+	list-style-type: square;
+}
+
+article hr:after {
+	content: "***";
+	letter-spacing: 2em;
+	font-family: var(--serif-font);
+	color: var(--link);
+}
+
+section.footnotes hr:after {
+	content: "";
+}
+
+article hr {
+	border: none;
+	text-align: center;
+	margin-bottom: 0.6rem;
+}
+
+pre {
+	padding: 10px;
+	font-size: 1rem;
+}
+
+article header > * {
+	margin-bottom: 0.3em;
+}
+
+dt {
+	text-transform: uppercase;
+	font-size: 0.8em;
+	font-weight: bold;
+	font-family: var(--sans-font);
+	letter-spacing: 1.5px;
+}
+
+dd {
+ 	margin-left: 1em;
+}
+
+p.dateline {
+	color: var(--link);
+	opacity: 0.7;
+}
+
+ul#publication-links {
+	margin-left: 0;
+	font-size: 0.95rem;
+	margin-bottom: 1.5em;
+}
+
+ul#publication-links li {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+span.publication-link-source {
+	background-color: var(--link);
+	color: var(--bg);
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-right: 5px;
+	/*font-family: var(--sans-font);*/
+	/*font-variant: small-caps;*/
+}
+
+a.publication-link {
+	border-radius: 3px;
+	border: solid 1px var(--link);;
+	text-decoration: none;
+	/*padding: 2px 4px 0px 0px;*/
+	font-/*family: var(--mono-font);*/
+	overflow: hidden;
+	display: inline-flex;
+	padding-right: 5px;
+	height: 1.5rem;
+	margin: 0;
+	/*just: center;*/
+}
