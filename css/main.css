@@ -11,83 +11,56 @@
 	font-family: 'Kepler';
 	font-style: normal;
 	font-weight: normal;
-	src: url('/fonts/KpRoman-Regular.otf') format('opentype');
+	src: url('/fonts/KpRoman-Regular.woff2') format('woff2'),
+	     url('/fonts/KpRoman-Regular.otf') format('opentype');
 }
 
 @font-face {
 	font-family: 'Kepler';
 	font-style: italic;
 	font-weight: normal;
-	src: url('/fonts/KpRoman-Italic.otf') format('opentype');
+	src: url('/fonts/KpRoman-Italic.woff2') format('woff2'),
+	     url('/fonts/KpRoman-Italic.otf') format('opentype');
 }
 
 @font-face {
 	font-family: 'Kepler';
+	font-style: normal;
 	font-weight: bold;
-	src: url('/fonts/KpRoman-Semibold.otf') format('opentype');
+	src: url('/fonts/KpRoman-Bold.woff2') format('woff2'),
+	     url('/fonts/KpRoman-Bold.otf') format('opentype');
 }
 
 @font-face {
-	font-family: 'Kepler Sans';
-	font-style: normal;
-	src: url('/fonts/KpSans-Regular.otf') format('opentype');
-}
-
-@font-face {
-	font-family: 'Kepler Mono';
-	font-style: normal;
-	src: url('/fonts/KpMono-Regular.otf') format('opentype');
-}
-
-@font-face {
-	font-family: 'Libertinus Serif';
-	font-style: normal;
-	src: url('/fonts/LibertinusSerif-Regular.otf') format('opentype');
+	font-family: 'Kepler';
+	font-style: italic;
+	font-weight: bold;
+	src: url('/fonts/KpRoman-BoldItalic.woff2') format('woff2'),
+	     url('/fonts/KpRoman-BoldItalic.otf') format('opentype');
 }
 
 @font-face {
 	font-family: 'Libertinus Sans';
 	font-style: normal;
 	font-weight: normal;
-	src: url('/fonts/LibertinusSans-Regular.otf') format('opentype');
+	src: url('/fonts/LibertinusSans-Regular.woff2') format('woff2'),
+	     url('/fonts/LibertinusSans-Regular.otf') format('opentype');
 }
 
 @font-face {
 	font-family: 'Libertinus Sans';
 	font-weight: bold;
 	font-style: normal;
-	src: url('/fonts/LibertinusSans-Bold.otf') format('opentype');
+	src: url('/fonts/LibertinusSans-Bold.woff2') format('woff2'), 
+	     url('/fonts/LibertinusSans-Bold.otf') format('opentype');
 }
 
 @font-face {
 	font-family: 'Libertinus Sans';
 	font-style: italic;
 	font-weight: normal;
-	src: url('/fonts/LibertinusSans-Italic.otf') format('opentype');
-}
-
-@font-face {
-	font-family: 'Courier Prime Code';
-	font-style: normal;
-	src: url('/fonts/CourierPrimeCode.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'Courier Prime Code';
-	font-style: italic;
-	src: url('/fonts/CourierPrimeCodeItalic.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'IBM Plex Mono';
-	font-weight: normal;
-	src: url('/fonts/IBMPlexMono-Regular.ttf') format('truetype');
-}
-
-@font-face {
-	font-family: 'IBM Plex Mono';
-	font-weight: bold;
-	src: url('/fonts/IBMPlexMono-SemiBold.ttf') format('truetype');
+	src: url('/fonts/LibertinusSans-Sans.woff2') format('woff2'), 
+	     url('/fonts/LibertinusSans-Sans.otf') format('opentype');
 }
 
 /* Root */
@@ -108,7 +81,7 @@
 	--link: var(--header-text);
 	--link-bg: var(--header-text-t);
 
-	--serif-font: 'Kepler', 'Junicode', 'Garamond', 'EB Garamond', serif;
+	--serif-font: 'Kepler', serif;
 	--sans-font:  'Libertinus Sans', system-ui, sans-serif;
 	--mono-font: 'Courier', monospace;
 }
