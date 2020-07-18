@@ -83,7 +83,7 @@
 
 	--serif-font: 'Kepler', serif;
 	--sans-font:  'Libertinus Sans', system-ui, sans-serif;
-	--mono-font: 'Courier', monospace;
+	--mono-font: 'Menlo', 'Courier', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
