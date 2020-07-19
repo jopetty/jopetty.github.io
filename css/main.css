@@ -83,7 +83,7 @@
 
 	--serif-font: 'Kepler', serif;
 	--sans-font:  'Libertinus Sans', system-ui, sans-serif;
-	--mono-font: 'Menlo', 'Courier', monospace;
+	--mono-font: Menlo, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -113,6 +113,10 @@ code {
 	font-family: var(--mono-font);
 }
 
+header#site-header h1 {
+	font-size: 2.5em;
+}
+
 section#wrapper {
 	margin-top: 4em;
 	margin-left: 2em;
@@ -121,14 +125,6 @@ section#wrapper {
 
 aside.sidebar {
 	margin: 3ex auto;
-}
-
-header#site-header {
-	/*text-align: right;*/
-}
-
-header#site-header h1 {
-	font-size: 3em;
 }
 
 aside.sidebar li {
@@ -159,6 +155,7 @@ article {
 		grid-column-start: 2;
   	/*grid-column-end: 2;*/
   	margin-bottom: 3em;
+  	font-size: 
 	}
 
 	aside.sidebar {
