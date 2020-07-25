@@ -111,6 +111,7 @@ a:hover {
 code {
 	letter-spacing: 0px;
 	font-family: var(--mono-font);
+	font-size: 0.95rem;
 }
 
 header#site-header h1 {
