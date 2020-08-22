@@ -116,6 +116,7 @@ code {
 
 header#site-header h1 {
 	font-size: 2.5em;
+	font-family: var(--serif-font);
 }
 
 section#wrapper {
@@ -133,17 +134,13 @@ aside.sidebar li {
 }
 
 article {
-	font-size: 1.1rem;
+	font-size: 1.2rem;
 	line-height: 1.7rem;
 	font-family: var(--serif-font);
 	color: var(--fg);
 }
 
 @media (min-width: 65rem) {
-	article {
-		font-size: 1.2rem;
-		line-height: 1.7rem;
-	}
 
 	section#wrapper {
 		display: grid;
@@ -342,9 +339,7 @@ a.footnote-backref {
 }
 
 a.footnote-backref {
-	font-family: var(--sans-font);
-	text-decoration: none;
-	font-size: 0.8rem;
+	/*text-decoration: none;*/
 	line-height: 0;
 	vertical-align: 0rem;
 }
@@ -396,16 +391,7 @@ dt, dd {
 }
 
 p.dateline {
-	/*color: var(--link);*/
-	/*opacity: 0.7;*/
-	font-size: 0.9em;
 	font-style: italic;
-	/*font-family: var(--sans-font);*/
-}
-
-p.article-title {
-	/*font-family: var(--sans-font);*/
-	/*font-size: 1.2em;*/
 }
 
 ul#publication-links {
