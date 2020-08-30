@@ -66,23 +66,21 @@
 /* Root */
 :root {
 	--bg: rgb(255, 255, 248);
-	--bg-night: #1E3247;
 	--bg-night: #232a38;
 
 	--fg: rgb(30, 30, 30);
-	--fg-night: #eee;
 	--fg-night: #ddd;
 
-	--header-text: rgb(132, 108, 91);
-	--header-text-t: rgba(132, 108, 91, 0.2);
-	--header-text-night: rgb(124, 150, 168);
-	--header-text-night-t: rgb(124, 150, 168, 0.2);
+	--accent: rgb(132, 108, 91);
+	--accent-t: rgba(132, 108, 91, 0.2);
+	--accent-night: rgb(124, 150, 168);
+	--accent-night-t: rgb(124, 150, 168, 0.2);
 
-	--link: var(--header-text);
-	--link-bg: var(--header-text-t);
+	--link: var(--accent);
+	--link-bg: var(--accent-t);
 
 	--serif-font: 'Kepler', serif;
-	--sans-font:  'Libertinus Sans', system-ui, sans-serif;
+	--sans-font: 'Libertinus Sans', system-ui, sans-serif;
 	--mono-font: Menlo, monospace;
 }
 
@@ -90,14 +88,21 @@
 	:root {
 		--bg: var(--bg-night);
 		--fg: var(--fg-night);
-		--header-text: var(--header-text-night);
-		--header-text-t: var(--header-text-night-t);
+		--accent: var(--accent-night);
+		--accent-t: var(--accent-night-t);
 	}
 }
 
 /* Main */
 html {
 	background-color: var(--bg);
+}
+
+/* Header */
+
+span#extension {
+	opacity: 0.6;
+	margin-left: -0.1em;
 }
 
 a, article a {
@@ -135,7 +140,7 @@ aside.sidebar li {
 
 article {
 	font-size: 1.2rem;
-	line-height: 1.7rem;
+	line-height: 1.42;
 	font-family: var(--serif-font);
 	color: var(--fg);
 }
@@ -188,6 +193,7 @@ aside.sidebar li {
 
 article h2, article h3 {
 	margin-top: 1.3em;
+	font-weight: bold;
 	/*color: var(--link);*/
 }
 
@@ -199,12 +205,14 @@ h6.list-date {
 article h2 {
 	margin-bottom: 7pt;
 	font-size: 1.2em;
-	font-weight: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-weight: 100;
 	font-family: var(--sans-font);
+}
+
+h1 {
+	font-weight: normal;
 }
 
 div[id="lettermark"] h1 sup {
@@ -301,7 +309,7 @@ article {
 }
 
 article p {
-	word-spacing: 2px;
+	word-spacing: .1em;
 }
 
 section.footnotes {
