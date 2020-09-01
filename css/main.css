@@ -67,6 +67,7 @@
 :root {
 	--bg: rgb(255, 255, 248);
 	--bg-night: #232a38;
+	--bg-night: #21242e;
 
 	--fg: rgb(30, 30, 30);
 	--fg-night: #ddd;
@@ -114,7 +115,7 @@ a:hover {
 }
 
 code {
-	letter-spacing: 0px;
+	letter-spacing: 0.5px;
 	font-family: var(--mono-font);
 	font-size: 0.95rem;
 }
@@ -140,7 +141,7 @@ aside.sidebar li {
 
 article {
 	font-size: 1.2rem;
-	line-height: 1.42;
+	line-height: 1.6;
 	font-family: var(--serif-font);
 	color: var(--fg);
 }
@@ -151,12 +152,11 @@ article {
 		display: grid;
 		grid-column-gap: 5em;
 		grid-row-gap: 3em;
-		grid-template-columns: 20em 40em;
+		grid-template-columns: 20em 37em;
 	}
 
 	header#site-header {
 		grid-column-start: 2;
-  	/*grid-column-end: 2;*/
   	margin-bottom: 3em;
   	font-size: 
 	}
@@ -194,7 +194,6 @@ aside.sidebar li {
 article h2, article h3 {
 	margin-top: 1.3em;
 	font-weight: bold;
-	/*color: var(--link);*/
 }
 
 h6.list-date {
@@ -229,7 +228,7 @@ aside.sidebar a {
 }
 
 article > * {
-	margin-bottom: 1.2rem;
+	margin-bottom: 4ex;
 }
 
 article sup * {
@@ -272,10 +271,11 @@ article .tt {
 
 article blockquote {
 	margin-left: 10pt;
-	padding-left: 20pt;
+	padding-left: 15pt;
 	border-left: solid 3px var(--link);
 	font-size: 1rem;
 	line-height: 1.6rem;
+	letter-spacing: 0.3px;
 }
 
 div[class="inset"] {
@@ -416,9 +416,9 @@ ul#publication-links li {
 span.publication-link-source {
 	background-color: var(--link);
 	color: var(--bg);
-	padding-left: 5px;
-	padding-right: 5px;
-	margin-right: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: 10px;
 }
 
 a.publication-link {
@@ -427,10 +427,16 @@ a.publication-link {
 	text-decoration: none;
 	overflow: hidden;
 	display: inline-flex;
-	padding-right: 5px;
-	height: 1.5rem;
-	margin: 0;
-	/*just: center;*/
+	padding-right: 10px;
+	align-content: center;
+	justify-content: center;
+	font-family: 'Menlo', monospace;
+}
+
+a.publication-link span {
+	line-height: 1;
+	padding-top: 6px;
+	padding-bottom: 4px;
 }
 
 article.blurb {
