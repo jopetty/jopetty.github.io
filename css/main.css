@@ -11,8 +11,9 @@
 	font-family: 'Kepler';
 	font-style: normal;
 	font-weight: normal;
-	src: url('/fonts/KpRoman-Regular.woff2') format('woff2'),
-	     url('/fonts/KpRoman-Regular.otf') format('opentype');
+	src: url('/fonts/KpRoman-Regular.otf') format('opentype');;
+/*	src: url('/fonts/KpRoman-Regular.woff2') format('woff2'),
+	     url('/fonts/KpRoman-Regular.otf') format('opentype');*/
 }
 
 @font-face {
