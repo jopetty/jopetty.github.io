@@ -1,0 +1,95 @@
+@font-face {
+	font-family: 'Kepler';
+	font-style: normal;
+	font-weight: normal;
+  src: url('/static/fonts/KpRoman-Regular.woff2') format('woff2'),
+	     url('/static/fonts/KpRoman-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Kepler';
+	font-style: italic;
+	font-weight: normal;
+	src: url('/static/fonts/KpRoman-Italic.woff2') format('woff2'),
+	     url('/static/fonts/KpRoman-Italic.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Kepler';
+	font-style: normal;
+	font-weight: bold;
+	src: url('/static/fonts/KpRoman-Bold.woff2') format('woff2'),
+	     url('/static/fonts/KpRoman-Bold.otf') format('opentype');
+}
+
+
+@font-face {
+	font-family: 'Kepler';
+	font-style: normal;
+	font-weight: 600;
+	src: url('/static/fonts/KpRoman-SemiBold.woff2') format('woff2'),
+	     url('/static/fonts/KpRoman-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Kepler';
+	font-style: italic;
+	font-weight: bold;
+	src: url('/static/fonts/KpRoman-BoldItalic.woff2') format('woff2'),
+	     url('/static/fonts/KpRoman-BoldItalic.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Libertinus Sans';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/static/fonts/LibertinusSans-Regular.woff2') format('woff2'),
+	     url('/static/fonts/LibertinusSans-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Libertinus Sans';
+	font-weight: bold;
+	font-style: normal;
+	src: url('/static/fonts/LibertinusSans-Bold.woff2') format('woff2'), 
+	     url('/static/fonts/LibertinusSans-Bold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Libertinus Sans';
+	font-style: italic;
+	font-weight: normal;
+	src: url('/static/fonts/LibertinusSans-Sans.woff2') format('woff2'), 
+	     url('/static/fonts/LibertinusSans-Sans.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Fira Mono';
+	font-weight: normal;
+	src: url('/static/fonts/FiraMono-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+	font-family: 'Archivo';
+	font-weight: normal;
+	src: url('/static/fonts/Archivo-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Archivo';
+	font-weight: 500;
+	src: url('/static/fonts/Archivo-Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Archivo';
+	font-weight: 700;
+	src: url('/static/fonts/Archivo-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Archivo';
+	font-weight: bold;
+	src: url('/static/fonts/Archivo-Bold.ttf') format('truetype');
+}
