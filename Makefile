@@ -3,7 +3,7 @@
 
 # Locations
 INPUT = website
-OUTPUT = _website
+OUTPUT = docs
 
 # External tool configurations
 TIDY_CONFIG = tidy.config

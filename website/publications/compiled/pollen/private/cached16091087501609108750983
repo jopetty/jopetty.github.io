@@ -1,1 +1,0 @@
-((3) 0 () 0 () () (u . #"<!DOCTYPE html>\n<html lang=\"en\">\n  \342\227\212(->html (head-with #:theme \"/css/grayscale.css\"))\n  \342\227\212(->html (body-with\n            #:navigation (navbar)\n            #:contents `(div ((id \"content\")) (article\n                             ,@(make-top metas)\n                             ,@(select* 'root doc)))))\n</html>"))
