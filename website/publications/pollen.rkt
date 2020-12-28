@@ -28,40 +28,40 @@
 
 ;;; 
 
-(define (make-t-summary metas doc output-path )
-  (let* ((title     (select-from-metas 'title metas))
-         (subtitle  (select-from-metas 'subtitle metas))
-         (started   (select-from-metas 'started metas))
-         (published (select-from-metas 'published metas))
-         (modified  (select-from-metas 'modified metas))
-         (excerpt   (select-from-metas 'excerpt metas))
-         (post      (path->string output-path))
+;;; (define (make-t-summary metas doc output-path )
+;;;   (let* ((title     (select-from-metas 'title metas))
+;;;          (subtitle  (select-from-metas 'subtitle metas))
+;;;          (started   (select-from-metas 'started metas))
+;;;          (published (select-from-metas 'published metas))
+;;;          (modified  (select-from-metas 'modified metas))
+;;;          (excerpt   (select-from-metas 'excerpt metas))
+;;;          (post      (path->string output-path))
 
-         (title-txt
-          (if title `(dd ((class "post-title"))
-                         ,(link post title)) ""))
-         )
+;;;          (title-txt
+;;;           (if title `(dd ((class "post-title"))
+;;;                          ,(link post title)) ""))
+;;;          )
 
-    `(@ (dt ,published) ,title-txt)
-    ))
+;;;     `(@ (dt ,published) ,title-txt)
+;;;     ))
 
-(define (make-full-index d)
-  (define (summarize f)
-    (let* ([source-path f]
-           [metas (cached-metas source-path)]
-           [doc (cached-doc source-path)]
-           [output-path (->output-path source-path)] )
-      (make-t-summary metas doc output-path)))
+;;; (define (make-full-index d)
+;;;   (define (summarize f)
+;;;     (let* ([source-path f]
+;;;            [metas (cached-metas source-path)]
+;;;            [doc (cached-doc source-path)]
+;;;            [output-path (->output-path source-path)] )
+;;;       (make-t-summary metas doc output-path)))
 
-  (define (sort-by-modification p1 p2)
-    (> (file-or-directory-modify-seconds	p1)
-       (file-or-directory-modify-seconds	p2) ))
+;;;   (define (sort-by-modification p1 p2)
+;;;     (> (file-or-directory-modify-seconds	p1)
+;;;        (file-or-directory-modify-seconds	p2) ))
 
-  (let* ((unsorted-files (filter indexable-source? (directory-list d #:build? #t)))
-         (sorted-files (sort unsorted-files sort-by-modification))
-         (summaries (map summarize sorted-files)) )
-    `(dl ,@summaries))
-  )
+;;;   (let* ((unsorted-files (filter indexable-source? (directory-list d #:build? #t)))
+;;;          (sorted-files (sort unsorted-files sort-by-modification))
+;;;          (summaries (map summarize sorted-files)) )
+;;;     `(dl ,@summaries))
+;;;   )
 
 ;;; 
 

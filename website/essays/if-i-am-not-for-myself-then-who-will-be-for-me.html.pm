@@ -2,7 +2,7 @@
 
 ◊(define-meta title "If I am not for myself, then who will be for me?"
               template "../template.html.p" 
-              published "Saturday, 20 April 2019"
+              published "2019-04-20"
               excerpt (list ""))
 
 ◊h1{If I am not for myself, then who will be for me?}

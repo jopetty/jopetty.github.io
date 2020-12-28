@@ -1,6 +1,6 @@
 #lang racket
 
-(require pollen/core)
+(require pollen/core "components.rkt")
 
 (provide (all-defined-out))
 
@@ -82,6 +82,6 @@
     ". "
     ,(if links 
       (for/splice ([l links])
-       `(@ "[" (a [(href ,(cdr l)) (class "out-link") (target "_blank") (style "font-family: 'Alegreya Sans SC'; font-weight: 400;")] ,(car l) ) "] "))
+        `(@ "[" ,(apply link (cdr l) (list (car l))) "] "))
       "")
     ))

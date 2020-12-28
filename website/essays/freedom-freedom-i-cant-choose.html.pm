@@ -2,7 +2,7 @@
 
 ◊(define-meta title "Freedom, freedom, I can’t choose"
               template "../template.html.p" 
-              published "Saturday, 2 March 2019"
+              published "2019-03-02"
               excerpt (list ""))
 
 ◊h1{Freedom, freedom, I can’t choose}
