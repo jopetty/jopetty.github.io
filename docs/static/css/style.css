@@ -436,3 +436,20 @@ sup {
         line-height: 0;
         font-size: 70%;
 }
+
+td, th {
+        text-align: right;
+        padding: 3px 5px;
+}
+
+td:nth-child(1), th:nth-child(1) {
+        text-align: left;
+}
+
+td p, th p {
+        color: var(--text) !important;
+}
+
+th p {
+        font-weight: 500 !important;
+}

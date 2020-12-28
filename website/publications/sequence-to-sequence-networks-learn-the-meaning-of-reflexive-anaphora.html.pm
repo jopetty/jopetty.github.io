@@ -6,15 +6,6 @@
               author "Robert Frank and Jackson Petty (Equal Contribution)"
               excerpt (list ""))
 
-◊(define syndication-links 
-         (list 
-          (list "arxiv" "https://arxiv.org/abs/2011.00682" "2011.00682")
-          (list "pdf" "/papers/frank-petty-sequence-anaphora.pdf" "pdf")))
-
-◊declare-work[#:id "bhadanau2016" #:type "article" #:title "Neural machine translation by jointly learning to align and translate" #:url "http://arxiv.org/abs/1409.0473" #:author "Dzmitry Bahdanau" #:author2-given "Kyunghyun" #:author2-family "Cho" #:author3-given "Yoshua" #:author3-family "Bengio" #:year "2016" #:journal "arXiv"]
-
-◊declare-work[#:id "Charter" #:type "custom" #:custom-format "*Canadian Charter of Rights and Freedoms*[[pinpoint]], Part I of the *Constitution Act, 1982*, being Schedule B to the *Canada Act 1982* (UK), 1982, c 11" #:short-form "*Charter*"]
-
 ◊h1{Sequence-to-Sequence Networks Learn the Meaning of Reflexive Anaphora}
 
 ◊h3{Robert Frank and Jackson Petty}
@@ -23,8 +14,11 @@
   ◊p{Reflexive anaphora present a challenge for semantic interpretation: their meaning varies depending on context in a way that appears to require abstract variables. Past work has raised doubts about the ability of recurrent networks to meet this challenge. In this paper, we explore this question in the context of a fragment of English that incorporates the relevant sort of contextual variability. We consider sequence-to-sequence architectures with recurrent units and show that such networks are capable of learning semantic interpretations for reflexive anaphora which generalize to novel antecedents. We explore the effect of attention mechanisms and different recurrent unit types on the type of training data that is needed for success as measured in two ways: how much lexical support is needed to induce an abstract reflexive meaning (i.e., how many distinct reflexive antecedents must occur during training) and what contexts must a noun phrase occur in to support generalization of reflexive interpretation to this noun phrase?}
 }
 
-◊div[#:style "display: block; background-color: #fc6; padding: 10px; border-left: solid 5px #fa3;"]{
-  ◊p[#:style "color: #000;"]{◊strong{NB:} This is an incomplete transcription of the ◊link["https://www.aclweb.org/anthology/2020.crac-1.16/"]{published version} into HTML.}
+◊div[#:style "display: block; background-color: rgba(255,204,102,.3); padding: 10px; border-left: solid 5px #fa3;"]{
+  ◊p[]{
+    This paper was presented at CRAC 2020 and is originally published by the ACL in the proceedings of the workshop. You can find the ◊link["https://www.aclweb.org/anthology/2020.crac-1.16/"]{published version in the ACL Anthology,} or view the version on ◊link["https://arxiv.org/abs/2011.00682"]{arXiv}. The ◊link["/static/files/CRAC_2020.m4v"]{talk} and its ◊link["/static/files/CRAC_2020.pdf"]{slides} are also available.
+    ◊; ◊strong{NB:} This is an incomplete transcription of the ◊link["https://www.aclweb.org/anthology/2020.crac-1.16/"]{published version} into HTML.
+  }
 }
 
 ◊section{1. Introduction}
@@ -33,31 +27,31 @@ Recurrent neural network architectures have demonstrated remarkable success in n
 
 In this paper, we take a different tack, exploring the degree to which neural networks successfully master one very specific aspect of linguistic knowledge: the interpretation of sentences containing reflexive anaphora. We address this problem in the context of the task of semantic parsing, which we instantiate as mapping a sequence of words into a predicate calculus logical form representation of the sentence’s meaning.
 
-◊table[#:style "font-family: var(--serif-font);"]{
+◊table{
   ◊tr{
-    ◊td[#:style "width: 1.5em;"]{(1)}
-    ◊td[#:style "width: 1.5em;"]{a.}
-    ◊td{Mary runs → ◊span[#:style "font-variant: small-caps;"]{run(mary)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{(1)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{a.}}
+    ◊td{◊p{Mary runs → ◊span[#:style "font-variant: small-caps;"]{run(mary)}}}
   }
   ◊tr{
     ◊td{}
-    ◊td[#:style "width: 1.5em;"]{b.}
-    ◊td{John sees Bob → ◊span[#:style "font-variant: small-caps;"]{see(john, bob)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{b.}}
+    ◊td{◊p{John sees Bob → ◊span[#:style "font-variant: small-caps;"]{see(john, bob)}}}
   }
 }
 
 Even for simple sentences like those in (1), which represent the smallest representations of object reflexives in English, the network must learn lexical semantic correspondences (e.g., the input symbol ◊em{Mary} is mapped to the output ◊span[#:style "font-variant: small-caps;"]{mary} and ◊em{runs} is mapped to ◊span[#:style "font-variant: small-caps;"]{run}) and a mode of composition (e.g., for an intransitive sentence, the meaning of the subject is surrounded by parentheses and appended to the meaning of the verb). Of course, not all of natural language adheres to such simple formulas. Reflexives, words like herself and himself, do not have an interpretation that can be assigned independently of the meaning of the surrounding context.
 
-◊table[#:style "font-family: var(--serif-font);"]{
+◊table{
   ◊tr{
-    ◊td[#:style "width: 1.5em;"]{(2)}
-    ◊td[#:style "width: 1.5em;"]{a.}
-    ◊td{Mary sees herself → ◊span[#:style "font-variant: small-caps;"]{see(mary, mary)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{(2)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{a.}}
+    ◊td{◊p{Mary sees herself → ◊span[#:style "font-variant: small-caps;"]{see(mary, mary)}}}
   }
   ◊tr{
     ◊td{}
-    ◊td[#:style "width: 1.5em;"]{b.}
-    ◊td{Alice sees herself → ◊span[#:style "font-variant: small-caps;"]{see(alice, alice)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{b.}}
+    ◊td{◊p{Alice sees herself → ◊span[#:style "font-variant: small-caps;"]{see(alice, alice)}}}
   }
 }
 
@@ -65,16 +59,16 @@ In these sentences, the interpretation of the reflexive is not a constant that c
 
 Marcus (1998) argues that this kind of abstraction, which he takes to require the use of algebraic variables to assert identity, is beyond the capacity of recurrent neural networks. Marcus’s demonstration involves a simple recurrent network (SRN, Elman 1990) language model that is trained to predict the next word over a corpus of sentences of the following form:
 
-◊table[#:style "font-family: var(--serif-font);"]{
+◊table{
   ◊tr{
-    ◊td[#:style "width: 1.5em;"]{(3)}
-    ◊td[#:style "width: 1.5em;"]{a.}
-    ◊td{A rose is a rose.}
+    ◊td[#:style "width: 1.5em;"]{◊p{(3)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{a.}}
+    ◊td{◊p{A rose is a rose.}}
   }
   ◊tr{
     ◊td{}
-    ◊td[#:style "width: 1.5em;"]{b.}
-    ◊td{A mountain is a mountain.}
+    ◊td[#:style "width: 1.5em;"]{◊p{b.}}
+    ◊td{◊p{A mountain is a mountain.}}
   }
 }
 
@@ -109,10 +103,10 @@ As discussed in the previous section, we are interested in whether sequence-to-s
 
 In the first experiment, we directly test whether or not networks can generalize knowledge of how to interpret ◊em{herself} to a new antecedent. We withhold all examples whose input sequence includes the reflexive ◊em{herself} bound by the single antecedent ◊em{Alice}, of the form shown in (4).
 
-◊table[#:style "font-family: var(--serif-font);"]{
+◊table{
   ◊tr{
-    ◊td[#:style "width: 1.5em;"]{(4)}
-    ◊td{Alice ◊em{verbs} herself → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(alice, alice)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{(4)}}
+    ◊td{◊p{Alice ◊em{verbs} herself → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(alice, alice)}}}
   }
 }
 
@@ -126,10 +120,10 @@ All network architectures were successful in this task, generalizing the interpr
 
 While the networks in Experiment 1 are not trained on sentences of the form shown in (4), they are trained on sentences that have the same target semantic form, namely sentences in which ◊em{Alice} occur as both subject and object of a transitive verb.
 
-◊table[#:style "font-family: var(--serif-font);"]{
+◊table{
   ◊tr{
-    ◊td[#:style "width: 1.5em;"]{(4)}
-    ◊td{Alice ◊em{verbs} Alice → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(alice, alice)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{(5)}}
+    ◊td{◊p{Alice ◊em{verbs} Alice → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(alice, alice)}}}
   }
 }
 
@@ -143,16 +137,16 @@ All architectures except SRNs without attention generalize perfectly to the held
 
 So far, we have considered generalization of reflexive interpretation to a single new name. One possible explanation of the networks’ success is that they are simply defaulting to the (held-out) ◊span[#:style "font-variant: small-caps;"]{alice} interpretation when confronted with a new antecedent, as an elsewhere interpretation (but see Gandhi and Lake 2019 for reasons for skepticism). Alternatively, even if the network has acquired a generalized interpretation for reflexives, it may be possible that this happens only when the training data includes overwhelming lexical support (in Experiments 1 and 2, 25 out of the 26 names in our domain appeared in the training data as the antecedent of a reflexive). To explore the contexts under which networks can truly generalize to a range of new antecedents, we construct training datasets in which we progressively withhold more and more names in sentences of the forms shown in (6), i.e., those that were removed in Experiment 2. [1]
 
-◊table[#:style "font-family: var(--serif-font);"]{
+◊table{
   ◊tr{
-    ◊td[#:style "width: 1.5em;"]{(6)}
-    ◊td[#:style "width: 1.5em;"]{a.}
-    ◊td{P ◊em{verbs} herself → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(p, p)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{(6)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{a.}}
+    ◊td{◊p{P ◊em{verbs} herself → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(p, p)}}}
   }
   ◊tr{
     ◊td{}
-    ◊td[#:style "width: 1.5em;"]{b.}
-    ◊td{P ◊em{verbs} P → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(p, p)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{b.}}
+    ◊td{◊p{P ◊em{verbs} P → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(p, p)}}}
   }
 }
 
@@ -163,21 +157,75 @@ Our domain contains 15 distinct feminine antecedents; we perform several iterati
 As shown in Figure 1, reducing the set of names that serve as antecedents to reflexives in the training data resulted in lower accuracy on the generalization set. SRNs, especially without attention, show significantly degraded performance when high numbers of names are withheld from reflexive contexts during training. With attention, SRN performance degrades only when reflexives are trained with a single feminine antecedent (i.e., 14 names are held out). In contrast, LSTMs both with and without attention maintain near-perfect accuracy on the generalization set even when the training data allows only a single antecedent for the feminine reflexive herself. The performance of GRUs varies with the presence of an attention mechanism: without attention, GRUs achieve near perfect generalization accuracy even for the most demanding case (training with a single feminine antecedent), while the performance of GRUs with attention has mean accuracy near 80%.
 
 ◊aside{
-  ◊div[#:style "width: 100%; height: 450px; background-color: #555; display: block;"]
+  ◊img[#:src "/static/images/seq-2-seq-fig1.svg" #:width "100%"]
   ◊p{Figure 1: Mean generalization accuracy by number of names withheld in Experiment 3. The (+) or (−) next to the type of recurrent unit indicates the presence or absence of attention. Error bars display the standard deviation of accuracies.}
 }
 
 We also explored how recurrent unit type and attention affect how models learn to generalize. One way to gauge this is by examining how quickly networks go from learning reflexive interpretation for a single name to learning it for every name. Table 1 shows the mean number of epochs it takes from when a network attains 95% accuracy on a single antecedent contexts [2] to when it has attained more than 95% accuracy on all held out antecedent contexts. [3]
 
 ◊aside{
-  ◊div[#:style "width: 100%; height: 150px; background-color: #555; display: block;"]
+  ◊table[#:style "border-collapse: collapse; width: 100%;"]{
+    ◊tr[#:style "border-top: solid 2px var(--text);"]{
+      ◊th{◊p{Architecture}}
+      ◊th[#:colspan "4" #:style "text-align: center;"]{◊p{# contexts withheld}}
+    }
+    ◊tr[#:style "border-bottom: solid 1px var(--text);"]{
+      ◊th{}
+      ◊th[#:style "width: 2.5em"]{◊p{2}}
+      ◊th[#:style "width: 2.5em"]{◊p{3}}
+      ◊th[#:style "width: 2.5em"]{◊p{6}}
+      ◊th[#:style "width: 2.5em"]{◊p{14}}
+    }
+    ◊tr{
+      ◊td{◊p{SRN (−)}}
+      ◊td{◊p{7.5}}
+      ◊td{◊p{5.0}}
+      ◊td{◊p{—}}
+      ◊td{◊p{—}}
+    }
+    ◊tr{
+      ◊td{◊p{SRN (+)}}
+      ◊td{◊p{0.6}}
+      ◊td{◊p{0.6}}
+      ◊td{◊p{0.6}}
+      ◊td{◊p{—}}
+    }
+    ◊tr{
+      ◊td{◊p{GRU (−)}}
+      ◊td{◊p{1.8}}
+      ◊td{◊p{2.2}}
+      ◊td{◊p{3.4}}
+      ◊td{◊p{9.4}}
+    }
+    ◊tr{
+      ◊td{◊p{GRU (+)}}
+      ◊td{◊p{2.2}}
+      ◊td{◊p{3.6}}
+      ◊td{◊p{5.3}}
+      ◊td{◊p{1.5}}
+    }
+    ◊tr{
+      ◊td{◊p{LSTM (−)}}
+      ◊td{◊p{1.2}}
+      ◊td{◊p{2.2}}
+      ◊td{◊p{4.4}}
+      ◊td{◊p{12.2}}
+    }
+    ◊tr[#:style "border-bottom: solid 2px var(--text);"]{
+      ◊td{◊p{LSTM (+)}}
+      ◊td{◊p{0.6}}
+      ◊td{◊p{0.8}}
+      ◊td{◊p{1.4}}
+      ◊td{◊p{3.4}}
+    }
+  }
   ◊p{Table 1: Average number of epochs between having learned one context and having learned all contexts, calculated as the mean difference among runs which succeeded in eventually learning all contexts once. A ‘—’ in a row indicates that no models were able to achieve this degree of generalization.}
 }
 
 This ‘time to learn’ highlights the disparate impact of attention depending on the type of recurrent unit; SRNs with attention and LSTMs with attention acquire the generalization much faster than their attentionless counterparts, while attention increases the length of time it takes for GRUs to learn for all but the condition in which 14 antecedents were withheld. Figure 2 illustrates another important aspect of reflexive generalization: it proceeds in a piecemeal fashion, where networks first learn to interpret reflexives for the trained names and then generalize to the held out antecedents one by one. In Figure 2 we show an SRN without attention, but the same pattern is representative of the other networks tested.
 
 ◊aside{
-  ◊div[#:style "width: 100%; height: 450px; background-color: #555; display: block;"]
+  ◊img[#:src "/static/images/seq-2-seq-fig2.svg" #:width "100%"]
   ◊p{Figure 2: Reflexive accuracy with different antecedents during training of an SRN without attention. ◊em{Alice}, ◊em{Claire} and ◊em{Eliza} were withheld during training while ◊em{Grace} and ◊em{Isla} present in the training data.}
 }
 
@@ -187,10 +235,10 @@ The experiments we have described thus far removed from the training data input 
 
 Experiment 4a starts by withholding sentences where ◊em{Alice} appears as the subject of a transitive verb (including those with reflexive objects, which we already removed in earlier experiments). This manipulation tests the degree to which the presence of ◊em{Alice} as a subject more generally is crucial to the network’s generalization of reflexive sentences to a novel name. We also run a variation of this experiment (Experiment 4b) in which sentences containing ◊em{Alice} as the subject of intransitives are also removed, i.e., sentences of the following form:
 
-◊table[#:style "font-family: var(--serif-font);"]{
+◊table{
   ◊tr{
-    ◊td[#:style "width: 1.5em;"]{(4)}
-    ◊td{Alice ◊em{verbs} → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(alice)}}
+    ◊td[#:style "width: 1.5em;"]{◊p{(7)}}
+    ◊td{◊p{Alice ◊em{verbs} → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(alice)}}}
   }
 }
 
@@ -201,12 +249,76 @@ If subjecthood is represented in a uniform manner across transitive and intransi
 ◊strong[#:style "margin-right: 1em;"]{Experiment 4a} The left plot in Figure 3 shows the reflexive generalization accuracy for the runs of the different architectures in the first variant of this experiment. Models without attention uniformly perform poorly across all recurrent unit types. With attention, performance is more variable: LSTMs perform at ceiling and SRNs do well for most random seeds, while GRUs perform poorly for most initializations with a single seed performing at ceiling. The top portion of Table 2 contrasts the means of these results with the generalization performance on transitives with ◊em{Alice} subjects. Here again LSTMs without attention performed poorly while those with attention did much worse on ◊em{Alice}-transitives than on ◊em{Alice}-reflexive sentences.
 
 ◊aside{
-  ◊div[#:style "width: 100%; height: 450px; background-color: #555; display: block;"]
+  ◊img[#:src "/static/images/seq-2-seq-fig3.svg" #:width "100%"]
   ◊p{Figure 3: Mean accuracy on ◊em{Alice}-reflexive sentences in Experiments 4a (left) and 4b (right).}
 }
 
 ◊aside{
-  ◊div[#:style "width: 100%; height: 150px; background-color: #555; display: block;"]
+    ◊table[#:style "border-collapse: collapse; width: 100%;"]{
+    ◊tr[#:style "border-top: solid 2px var(--text);"]{
+      ◊th{◊p{Experiment 4a}}
+      ◊th{◊p{SRN (−)}}
+      ◊th{◊p{SRN (+)}}
+      ◊th{◊p{GRU (−)}}
+      ◊th{◊p{GRU (+)}}
+      ◊th{◊p{LSTM (−)}}
+      ◊th{◊p{LSTM (+)}}
+    }
+    ◊tr{
+      ◊td{◊p{◊em{Alice}-reflexive}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{0.80}}
+      ◊td{◊p{0.03}}
+      ◊td{◊p{0.26}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{◊strong{1.00}}}
+    }
+    ◊tr[#:style "border-bottom: solid 1px var(--text);"]{
+      ◊td{◊p{◊em{Alice}-subject (trans)}}
+      ◊td{◊p{0.02}}
+      ◊td{◊p{◊strong{0.83}}}
+      ◊td{◊p{0.04}}
+      ◊td{◊p{0.29}}
+      ◊td{◊p{0.03}}
+      ◊td{◊p{0.28}}
+    }
+    ◊tr{
+      ◊th{◊p{Experiment 4b}}
+      ◊th{◊p{SRN (−)}}
+      ◊th{◊p{SRN (+)}}
+      ◊th{◊p{GRU (−)}}
+      ◊th{◊p{GRU (+)}}
+      ◊th{◊p{LSTM (−)}}
+      ◊th{◊p{LSTM (+)}}
+    }
+    ◊tr{
+      ◊td{◊p{◊em{Alice}-reflexive}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{0.63}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{0.80}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{◊strong{0.83}}}
+    }
+    ◊tr{
+      ◊td{◊p{◊em{Alice}-subject (trans)}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{0.25}}
+      ◊td{◊p{0.01}}
+      ◊td{◊p{◊strong{0.78}}}
+      ◊td{◊p{0.03}}
+      ◊td{◊p{0.23}}
+    }
+    ◊tr[#:style "border-bottom: solid 2px var(--text);"]{
+      ◊td{◊p{◊em{Alice}-subject (intrans)}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{0.80}}
+      ◊td{◊p{0.58}}
+      ◊td{◊p{0.95}}
+      ◊td{◊p{0.98}}
+      ◊td{◊p{◊strong{1.00}}}
+    }
+  }
   ◊p{Table 2: Mean accuracy on generalization sets for Experiments 4a and 4b.}
 }
 
@@ -227,12 +339,76 @@ In the final experiment, we restrict the grammatical context in which ◊em{Alic
 ◊strong[#:style "margin-right: 1em;"]{Experiment 5a} The left plot in Figure 4 shows reflexive generalization accuracy when the missing antecedent ◊em{Alice} is withheld from transitive objects. In contrast to the results in Experiment 4, the effect of attention is more varied here. While SRNs and LSTMs without attention perform poorly, GRUs without attention perform well (for some seeds). As the top panel in Table 3 shows, no models without attention performed well on sentences with ◊em{Alice} in object position. For the models with attention, SRNs and LSTMs perforrmed uniformly well while the performance of GRUs was more mixed. On ◊em{Alice}-object sentences attentive SRNs again showed excellent performance, whereas the GRUs and LSTMs fared less well. At the same time, while GRUs with attention outperformed GRUs without attention on ◊em{Alice}-object sentences (25% to 4%), they greatly underperformed them on the reflexive sentences (60% to 98%).
 
 ◊aside{
-  ◊div[#:style "width: 100%; height: 450px; background-color: #555; display: block;"]
+  ◊img[#:src "/static/images/seq-2-seq-fig4.svg" #:width "100%"]
   ◊p{Figure 4: Mean accuracy on ◊em{Alice}-reflexive sentences in Experiments 5a (left) and 5b (right).}
 }
 
 ◊aside{
-  ◊div[#:style "width: 100%; height: 150px; background-color: #555; display: block;"]
+    ◊table[#:style "border-collapse: collapse; width: 100%;"]{
+    ◊tr[#:style "border-top: solid 2px var(--text);"]{
+      ◊th{◊p{Experiment 5a}}
+      ◊th{◊p{SRN (−)}}
+      ◊th{◊p{SRN (+)}}
+      ◊th{◊p{GRU (−)}}
+      ◊th{◊p{GRU (+)}}
+      ◊th{◊p{LSTM (−)}}
+      ◊th{◊p{LSTM (+)}}
+    }
+    ◊tr{
+      ◊td{◊p{◊em{Alice}-reflexive}}
+      ◊td{◊p{0.03}}
+      ◊td{◊p{0.94}}
+      ◊td{◊p{0.98}}
+      ◊td{◊p{0.60}}
+      ◊td{◊p{0.23}}
+      ◊td{◊p{◊strong{1.00}}}
+    }
+    ◊tr[#:style "border-bottom: solid 1px var(--text);"]{
+      ◊td{◊p{◊em{Alice}-object}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{◊strong{0.97}}}
+      ◊td{◊p{0.04}}
+      ◊td{◊p{0.25}}
+      ◊td{◊p{0.04}}
+      ◊td{◊p{0.37}}
+    }
+    ◊tr{
+      ◊th{◊p{Experiment 5b}}
+      ◊th{◊p{SRN (−)}}
+      ◊th{◊p{SRN (+)}}
+      ◊th{◊p{GRU (−)}}
+      ◊th{◊p{GRU (+)}}
+      ◊th{◊p{LSTM (−)}}
+      ◊th{◊p{LSTM (+)}}
+    }
+    ◊tr{
+      ◊td{◊p{◊em{Alice}-reflexive}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{0.65}}
+      ◊td{◊p{0.45}}
+      ◊td{◊p{0.14}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{◊strong{0.80}}}
+    }
+    ◊tr{
+      ◊td{◊p{◊em{Alice}-object}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{◊strong{0.94}}}
+      ◊td{◊p{0.03}}
+      ◊td{◊p{0.09}}
+      ◊td{◊p{0.03}}
+      ◊td{◊p{0.17}}
+    }
+    ◊tr[#:style "border-bottom: solid 2px var(--text);"]{
+      ◊td{◊p{◊em{Alice}-subject (intrans)}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{0.13}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{0.00}}
+      ◊td{◊p{◊strong{0.40}}}
+    }
+  }
   ◊p{Table 3: Mean accuracy on generalization sets for Experiments 5a and 5b.}
 }
 
@@ -290,7 +466,7 @@ For helpful comments and discussion of this work, we are grateful to Shayna Srag
   ◊item{Najoung Kim and Tal Linzen. 2020. COGS: A compositional generalization challenge based on semantic interpretation. In ◊em{The 2020 Conference on Empirical Methods in Natural Language Processing}.}
   ◊item{Brenden M. Lake. 2019. ◊link["https://arxiv.org/abs/1906.05381"]{Compositional generalization through meta sequence-to-sequence learning.} In ◊em{Advances in Neural Information Processing Systems 32}, pages 9791–9801.}
   ◊item{Brenden M. Lake and Marco Baroni. 2018. ◊link["https://arxiv.org/abs/1711.00350"]{Generalization without systematicity: On the compositional skills of sequence-to-sequence recurrent networks.} In ◊em{Proceedings of the 35th International Conference on Machine Learning, volume 80 of Proceedings of Machine Learning Research}, pages 2873–2882, Stockholm, Sweden.}
-  ◊item{Yuanpeng Li, Liang Zhao, Jianyu Wang, and Joel Hestness. 2019. Compositional generalization for primitive substitutions. In ◊em{Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP/IJCNLP)}, pages 4293––4302, Hong Kong, China.}
+  ◊item{Yuanpeng Li, Liang Zhao, Jianyu Wang, and Joel Hestness. 2019. Compositional generalization for primitive substitutions. In ◊em{Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP/IJCNLP)}, pages 4293--4302, Hong Kong, China.}
   ◊item{Tal Linzen, Emmanuel Dupoux, and Yoav Goldberg. 2016. Assessing the ability of LSTMs to learn syntax-sensitive dependencies. ◊em{Transactions of the Association for Computational Linguistics}, 4(1).}
   ◊item{Thang Luong, Hieu Pham, and Christopher D. Manning. 2015. ◊link["https://www.aclweb.org/anthology/D15-1166/"]{Effective approaches to attention-based neural machine translation.} In ◊em{Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing}, pages 1412–1421, Lisbon, Portugal. Association for Computational Linguistics.}
   ◊item{Gary F. Marcus. 1998. Can connectionism save constructionism? ◊em{Cognition}, 66:153–182.}
