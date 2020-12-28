@@ -443,13 +443,13 @@ sup {
 	font-size: 70%;
 }
 
-td, th {
+table:not(.ex) td, table:not(.ex) th {
 	text-align: right;
 	padding: 3px 5px;
 }
 
 td:nth-child(1), th:nth-child(1) {
-	text-align: left;
+	text-align: left !important;
 }
 
 td p, th p {
