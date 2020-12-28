@@ -31,7 +31,7 @@ While the intuitive notion of freedom as “being able to act without restrictio
   New Haven, CT
 }}
 
-◊subsection{Notes} 
+◊section{Notes} 
 ◊sequence{
   ◊item{Or more generally, a rational being’s freedom.}
   ◊item{One may object to this notion on the account that such societies perhaps do not or even cannot exist. Regardless of the existence of such states, the concept of political freedom is a useful analogue for that of free will. The empirical account of such societies, or lack thereof, does not affect the freedom of their citizens, were they to exist.}

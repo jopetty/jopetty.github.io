@@ -39,7 +39,7 @@
 }
 
 body {
-	font-size: min(1.4em, 3.5vw);
+	font-size: min(1.2em, 3.5vw);
   line-height: var(--line-height);
 	background-color: var(--bg);
 	-webkit-text-size-adjust: 100%;
@@ -383,7 +383,7 @@ strong {
 }
 
 div[class="abstract"] p {
-	font-size: 80%;
+	◊; font-size: 80%;
 	font-family: var(--sans-font);
 }
 
