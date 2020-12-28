@@ -153,7 +153,13 @@ article p {
 	display: block;
 	-webkit-hyphens: auto;
 	hyphens: auto;
-	
+	font-weight: 400;
+}
+
+@media (prefers-color-scheme: dark) {
+	article p {
+		font-weight: 300;
+	}
 }
 
 article li:before {

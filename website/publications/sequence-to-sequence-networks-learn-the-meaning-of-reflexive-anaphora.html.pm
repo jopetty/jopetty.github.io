@@ -157,7 +157,10 @@ Our domain contains 15 distinct feminine antecedents; we perform several iterati
 As shown in Figure 1, reducing the set of names that serve as antecedents to reflexives in the training data resulted in lower accuracy on the generalization set. SRNs, especially without attention, show significantly degraded performance when high numbers of names are withheld from reflexive contexts during training. With attention, SRN performance degrades only when reflexives are trained with a single feminine antecedent (i.e., 14 names are held out). In contrast, LSTMs both with and without attention maintain near-perfect accuracy on the generalization set even when the training data allows only a single antecedent for the feminine reflexive herself. The performance of GRUs varies with the presence of an attention mechanism: without attention, GRUs achieve near perfect generalization accuracy even for the most demanding case (training with a single feminine antecedent), while the performance of GRUs with attention has mean accuracy near 80%.
 
 ◊aside{
-  ◊img[#:src "/static/images/seq-2-seq-fig1.svg" #:width "100%"]
+  ◊picture{
+    ◊source[#:srcset "/static/images/seq-2-seq-fig1-dark.svg" #:media "(prefers-color-scheme: dark)"]
+    ◊img[#:src "/static/images/seq-2-seq-fig1.svg" #:width "100%"]
+  }
   ◊p{Figure 1: Mean generalization accuracy by number of names withheld in Experiment 3. The (+) or (−) next to the type of recurrent unit indicates the presence or absence of attention. Error bars display the standard deviation of accuracies.}
 }
 
@@ -225,7 +228,10 @@ We also explored how recurrent unit type and attention affect how models learn t
 This ‘time to learn’ highlights the disparate impact of attention depending on the type of recurrent unit; SRNs with attention and LSTMs with attention acquire the generalization much faster than their attentionless counterparts, while attention increases the length of time it takes for GRUs to learn for all but the condition in which 14 antecedents were withheld. Figure 2 illustrates another important aspect of reflexive generalization: it proceeds in a piecemeal fashion, where networks first learn to interpret reflexives for the trained names and then generalize to the held out antecedents one by one. In Figure 2 we show an SRN without attention, but the same pattern is representative of the other networks tested.
 
 ◊aside{
-  ◊img[#:src "/static/images/seq-2-seq-fig2.svg" #:width "100%"]
+  ◊picture{
+    ◊source[#:srcset "/static/images/seq-2-seq-fig2-dark.svg" #:media "(prefers-color-scheme: dark)"]
+    ◊img[#:src "/static/images/seq-2-seq-fig2.svg" #:width "100%"]
+  }
   ◊p{Figure 2: Reflexive accuracy with different antecedents during training of an SRN without attention. ◊em{Alice}, ◊em{Claire} and ◊em{Eliza} were withheld during training while ◊em{Grace} and ◊em{Isla} present in the training data.}
 }
 
@@ -249,7 +255,10 @@ If subjecthood is represented in a uniform manner across transitive and intransi
 ◊strong[#:style "margin-right: 1em;"]{Experiment 4a} The left plot in Figure 3 shows the reflexive generalization accuracy for the runs of the different architectures in the first variant of this experiment. Models without attention uniformly perform poorly across all recurrent unit types. With attention, performance is more variable: LSTMs perform at ceiling and SRNs do well for most random seeds, while GRUs perform poorly for most initializations with a single seed performing at ceiling. The top portion of Table 2 contrasts the means of these results with the generalization performance on transitives with ◊em{Alice} subjects. Here again LSTMs without attention performed poorly while those with attention did much worse on ◊em{Alice}-transitives than on ◊em{Alice}-reflexive sentences.
 
 ◊aside{
-  ◊img[#:src "/static/images/seq-2-seq-fig3.svg" #:width "100%"]
+  ◊picture{
+    ◊source[#:srcset "/static/images/seq-2-seq-fig3-dark.svg" #:media "(prefers-color-scheme: dark)"]
+    ◊img[#:src "/static/images/seq-2-seq-fig3.svg" #:width "100%"]
+  }
   ◊p{Figure 3: Mean accuracy on ◊em{Alice}-reflexive sentences in Experiments 4a (left) and 4b (right).}
 }
 
@@ -339,7 +348,10 @@ In the final experiment, we restrict the grammatical context in which ◊em{Alic
 ◊strong[#:style "margin-right: 1em;"]{Experiment 5a} The left plot in Figure 4 shows reflexive generalization accuracy when the missing antecedent ◊em{Alice} is withheld from transitive objects. In contrast to the results in Experiment 4, the effect of attention is more varied here. While SRNs and LSTMs without attention perform poorly, GRUs without attention perform well (for some seeds). As the top panel in Table 3 shows, no models without attention performed well on sentences with ◊em{Alice} in object position. For the models with attention, SRNs and LSTMs perforrmed uniformly well while the performance of GRUs was more mixed. On ◊em{Alice}-object sentences attentive SRNs again showed excellent performance, whereas the GRUs and LSTMs fared less well. At the same time, while GRUs with attention outperformed GRUs without attention on ◊em{Alice}-object sentences (25% to 4%), they greatly underperformed them on the reflexive sentences (60% to 98%).
 
 ◊aside{
-  ◊img[#:src "/static/images/seq-2-seq-fig4.svg" #:width "100%"]
+  ◊picture{
+    ◊source[#:srcset "/static/images/seq-2-seq-fig4-dark.svg" #:media "(prefers-color-scheme: dark)"]
+    ◊img[#:src "/static/images/seq-2-seq-fig4.svg" #:width "100%"]
+  }
   ◊p{Figure 4: Mean accuracy on ◊em{Alice}-reflexive sentences in Experiments 5a (left) and 5b (right).}
 }
 
