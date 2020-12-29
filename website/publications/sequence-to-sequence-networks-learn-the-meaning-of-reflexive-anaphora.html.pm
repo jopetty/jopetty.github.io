@@ -449,7 +449,7 @@ We do not know whether the architectures that have succeed on our experiments wo
 
 ◊section{Acknowledgments}
 
-For helpful comments and discussion of this work, we are grateful to Shayna Sragovicz, Noah Amsel, Tal Linzen and the members of the Computational Linguistics at Yale (CLAY) and the JHU Computation and Psycholinguistics labs. This work has been supported in part by NSF grant BCS-1919321 and a Yale College Summer Experience Award. Code for replicating these experiments can be found on the Computational Linguistics at the CLAY Lab GitHub ◊link["https://github.com/clay-lab/transductions"]{transductions} and ◊link["https://github.com/clay-lab/logos"]{logos} repositories.
+For helpful comments and discussion of this work, we are grateful to Shayna Sragovicz, Noah Amsel, Tal Linzen, and the members of the Computational Linguistics at Yale (CLAY) and the JHU Computation and Psycholinguistics labs. This work has been supported in part by NSF grant BCS-1919321 and a Yale College Summer Experience Award. Code for replicating these experiments can be found on the CLAY Lab GitHub ◊link["https://github.com/clay-lab/transductions"]{◊span[#:style "font-family: var(--mono-font); font-size: 80%;"]{transductions}} and ◊link["https://github.com/clay-lab/logos"]{◊span[#:style "font-family: var(--mono-font); font-size: 80%;"]{logos}} repositories.
 
 ◊section{Notes}
 
