@@ -23,6 +23,12 @@
 	--font-size: 1.4;
 	
 	--max-width: ◊|max-width|;
+
+	--light: 300;
+	--regular: 400;
+	--medium: 500;
+	--semibold: 600;
+	--bold: 700;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +36,12 @@
 		--bg: var(--bg-night);
 		--text: var(--text-night);
 		--alt-text: var(--alt-text-night);
+
+		--light: 200;
+		--regular: 300;
+		--medium: 400;
+		--semibold: 500;
+		--bold: 600;
 	}
 }
 
@@ -53,7 +65,7 @@ p {
 h1, h2, h3, h4, h5, h6 {
 	font-family: var(--sans-font);
 	color: var(--text);
-	font-weight: 600;
+	font-weight: var(--semibold);
 }
 
 h1 {
@@ -145,21 +157,19 @@ article aside {
 
 article aside p {
 	font-family: var(--sans-font);
-	font-weight: 400;
+	font-weight: var(--regular);
 	color: var(--alt-text);
+}
+
+article aside > p {
+	font-weight: var(--medium);
 }
 
 article p {
 	display: block;
 	-webkit-hyphens: auto;
 	hyphens: auto;
-	font-weight: 400;
-}
-
-@media (prefers-color-scheme: dark) {
-	article p {
-		font-weight: 300;
-	}
+	font-weight: var(--regular);
 }
 
 article li:before {
@@ -237,7 +247,7 @@ div.project-item:hover {
 
 span.project-name {
 	font-family: var(--sans-font);
-	font-weight: 500;
+	font-weight: var(--medium);
 }
 
 header {
@@ -296,7 +306,7 @@ a.syn-link {
 	justify-content: center;
 	align-items: center;
 	font-family: var(--sans-font);
-	font-weight: 400;
+	font-weight: var(--regular);
 	font-size: 80%;
 }
 
@@ -353,7 +363,7 @@ a.breadcrumb-link {
 	text-transform: lowercase;
 	font-variant: small-caps;
 	letter-spacing: 0.5pt;
-	font-weight: 500;
+	font-weight: var(--medium);
 	color: var(--text);
 }
 
@@ -380,11 +390,11 @@ div.valediction {
 	letter-spacing: 0.1pt;
 	margin-top: 2.5ex;
 	font-size: 85%;
-	font-weight: 500;
+	font-weight: var(--medium);
 }
 
 strong {
-	font-weight: 600;
+	font-weight: var(--semibold);
 }
 
 div[class="abstract"] p {
@@ -404,7 +414,7 @@ ul.feed li {
 
 span.feed-header {
 	font-family: 'Alegreya Sans SC'; 
-	font-weight: 600; 
+	font-weight: var(--semibold); 
 	display: block; 
 	text-transform: lowercase; 
 	letter-spacing: 0.5pt;
@@ -427,7 +437,7 @@ dl {
 
 dt {
 	font-family: 'Alegreya Sans SC';
-	font-weight: 600;
+	font-weight: var(--semibold);
 	text-transform: lowercase;
 	◊; font-size: 75%;
 	letter-spacing: 0.5pt;
