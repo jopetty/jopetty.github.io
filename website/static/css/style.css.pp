@@ -467,10 +467,14 @@ td:nth-child(1), th:nth-child(1) {
 	text-align: left !important;
 }
 
+td p {
+	font-weight: var(--medium) !important;
+}
+
 td p, th p {
 	color: var(--text) !important;
 }
 
 th p {
-	font-weight: 500 !important;
+	font-weight: var(--semibold) !important;
 }
