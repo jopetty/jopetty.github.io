@@ -256,6 +256,7 @@ header {
 	grid-template-columns: min(var(--max-width), 100vw);
 	justify-content: center;
 	width: 100vw;
+	z-index: 100;
 }
 
 header nav {
@@ -439,7 +440,6 @@ dt {
 	font-family: 'Alegreya Sans SC';
 	font-weight: var(--semibold);
 	text-transform: lowercase;
-	◊; font-size: 75%;
 	letter-spacing: 0.5pt;
 	margin-top: 3ex;
 }
