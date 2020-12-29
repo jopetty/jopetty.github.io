@@ -467,8 +467,12 @@ td:nth-child(1), th:nth-child(1) {
 	text-align: left !important;
 }
 
-td p {
+table:not(.ex) td p {
 	font-weight: var(--medium) !important;
+}
+
+table:not(.ex) td strong {
+	font-weight: var(--bold) !important;
 }
 
 td p, th p {
