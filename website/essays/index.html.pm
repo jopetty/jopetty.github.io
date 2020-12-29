@@ -1,6 +1,6 @@
 #lang pollen
 
-◊(define-meta title "Jackson Petty: About"
+◊(define-meta title "Jackson Petty: Essays"
               template "../template.html.p" ) 
 
 ◊section{Essays}
