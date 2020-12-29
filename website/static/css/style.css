@@ -11,9 +11,9 @@
         --accent: rgb(124, 150, 168);
         --accent-t: rgb(124, 150, 168, 0.2);
 
-        --serif-font: 'Alegreya', 'Kepler', serif;
-        --sans-font: 'Alegreya Sans', system-ui, sans-serif;
-  --mono-font: Menlo, 'Fira Mono', monospace;
+        --serif-font: 'Alegreya', serif;
+        --sans-font: 'Alegreya Sans', sans-serif;
+  --mono-font: Menlo, monospace;
 
   --line-height: 1.4;
         --font-size: 1.4;
@@ -96,11 +96,11 @@ a.out-link:hover {
 
 a.out-link:after {
   position: relative;
-        content: "\FEFF\2009\FEFF°";
+        content: "\FEFF°";
   font-size: 90%;
   color: var(--accent);
         font-weight: bold;
-        font-family: var(--serif-font);
+        font-family: var(--mono-font);
         text-decoration: none;
         text-decoration-color: transparent;
 }
@@ -202,7 +202,6 @@ article ol.ex li:before, article ul li:before  {
 
 code {
         font-family: var(--mono-font);
-        font-family: 'Fira Mono';
         font-size: 80%;
         color: var(--text);
         -moz-hyphens: none;

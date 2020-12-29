@@ -9,7 +9,7 @@ I am a computational scientist interested in natural language processing and spa
 
 I am pursuing double bachelors degrees in Mathematics and Linguistics at ◊link["https://yale.edu"]{Yale University,} where I am a member of ◊link["https://saybrook.yalecollege.yale.edu"]{Saybrook College} (the best residential college). You can download a copy of my ◊link["/static/files/vitae.pdf"]{CV here.}
 
-Questions or comments about research may be addressed to  ◊inline-code{◊link["mailto:research@jacksonpetty.org"]}.
+Questions or comments about research may be addressed to  ◊inline-code{◊link["mailto:research@jacksonpetty.org"]{research◊span[#:style "padding-left: 5px; padding-right: 3px;"]{@}jacksonpetty.org}}.
 
 ◊section{Elsewhere on the internet}
 
