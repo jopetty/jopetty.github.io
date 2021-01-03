@@ -133,7 +133,7 @@ In Experiment 2 we consider whether the presence of such semantically reflexive 
 
 All architectures except SRNs without attention generalize perfectly to the held out items. Inattentive SRNs also generalize quite well, though only at a mean accuracy of 86%. While success at Experiment 1 demonstrates the networks’ abilities to generalize to novel input contexts, success at Experiment 2 highlights how models can likewise generalize to produce entirely new outputs.
 
-◊subsection{5. Experiment 3: Who’s Alice and who’s Claire?}
+◊section{5. Experiment 3: Who’s Alice and who’s Claire?}
 
 So far, we have considered generalization of reflexive interpretation to a single new name. One possible explanation of the networks’ success is that they are simply defaulting to the (held-out) ◊span[#:style "font-variant: small-caps;"]{alice} interpretation when confronted with a new antecedent, as an elsewhere interpretation (but see Gandhi and Lake 2019 for reasons for skepticism). Alternatively, even if the network has acquired a generalized interpretation for reflexives, it may be possible that this happens only when the training data includes overwhelming lexical support (in Experiments 1 and 2, 25 out of the 26 names in our domain appeared in the training data as the antecedent of a reflexive). To explore the contexts under which networks can truly generalize to a range of new antecedents, we construct training datasets in which we progressively withhold more and more names in sentences of the forms shown in (6), i.e., those that were removed in Experiment 2. [1]
 
