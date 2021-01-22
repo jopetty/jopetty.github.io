@@ -6,4 +6,4 @@
 
 ◊section{Publications}
 
-◊(make-full-index ".")
+◊(make-full-index ".")  

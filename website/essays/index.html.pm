@@ -5,4 +5,4 @@
 
 ◊section{Essays}
 
-◊(make-full-index ".")
+◊(make-full-index ".") 

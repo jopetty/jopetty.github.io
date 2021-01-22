@@ -2,9 +2,9 @@
 
 ◊(define-meta title "Sequence-to-Sequence Networks Learn the Meaning of Reflexive Anaphora"
               template "../template.html.p" 
-              published "Friday, 20 November 2020"
+              published "20 November 2020"
               author "Robert Frank and Jackson Petty (Equal Contribution)"
-              excerpt (list ""))
+              blurb (@ "Reflexive anaphora present a challenge for semantic interpretation: their meaning varies depending on context in a way that appears to require abstract variables. We consider sequence-to-sequence architectures with recurrent units and show that such networks are capable of learning semantic interpretations for reflexive anaphora which generalize to novel antecedents.")) 
 
 ◊h1{Sequence-to-Sequence Networks Learn the Meaning of Reflexive Anaphora}
 
@@ -17,7 +17,6 @@
 ◊div[#:style "display: block; background-color: rgba(255,204,102,.3); padding: 10px; border-left: solid 5px #fa3;"]{
   ◊p[]{
     This paper was presented at CRAC 2020 and is originally published by the ACL in the proceedings of the workshop. You can find the ◊link["https://www.aclweb.org/anthology/2020.crac-1.16/"]{published version in the ACL Anthology,} or view the version on ◊link["https://arxiv.org/abs/2011.00682"]{arXiv.} The ◊link["/static/files/CRAC_2020.m4v"]{talk} and its ◊link["/static/files/CRAC_2020.pdf"]{slides} are also available.
-    ◊; ◊strong{NB:} This is an incomplete transcription of the ◊link["https://www.aclweb.org/anthology/2020.crac-1.16/"]{published version} into HTML.
   }
 }
 
@@ -31,31 +30,31 @@ In this paper, we take a different tack, exploring the degree to which neural ne
   ◊tr{
     ◊td[#:style "width: 1.5em;"]{◊p{(1)}}
     ◊td[#:style "width: 1.5em;"]{◊p{a.}}
-    ◊td{◊p{Mary runs → ◊span[#:style "font-variant: small-caps;"]{run(mary)}}}
+    ◊td{◊p{Mary runs → ◊span[#:class "small-cap"]{run(mary)}}}
   }
   ◊tr{
     ◊td{}
     ◊td[#:style "width: 1.5em;"]{◊p{b.}}
-    ◊td{◊p{John sees Bob → ◊span[#:style "font-variant: small-caps;"]{see(john, bob)}}}
+    ◊td{◊p{John sees Bob → ◊span[#:class "small-cap"]{see(john, bob)}}}
   }
 }
 
-Even for simple sentences like those in (1), which represent the smallest representations of object reflexives in English, the network must learn lexical semantic correspondences (e.g., the input symbol ◊em{Mary} is mapped to the output ◊span[#:style "font-variant: small-caps;"]{mary} and ◊em{runs} is mapped to ◊span[#:style "font-variant: small-caps;"]{run}) and a mode of composition (e.g., for an intransitive sentence, the meaning of the subject is surrounded by parentheses and appended to the meaning of the verb). Of course, not all of natural language adheres to such simple formulas. Reflexives, words like herself and himself, do not have an interpretation that can be assigned independently of the meaning of the surrounding context.
+Even for simple sentences like those in (1), which represent the smallest representations of object reflexives in English, the network must learn lexical semantic correspondences (e.g., the input symbol ◊em{Mary} is mapped to the output ◊span[#:class "small-cap"]{mary} and ◊em{runs} is mapped to ◊span[#:class "small-cap"]{run}) and a mode of composition (e.g., for an intransitive sentence, the meaning of the subject is surrounded by parentheses and appended to the meaning of the verb). Of course, not all of natural language adheres to such simple formulas. Reflexives, words like herself and himself, do not have an interpretation that can be assigned independently of the meaning of the surrounding context.
 
 ◊table[#:class "ex"]{
   ◊tr{
     ◊td[#:style "width: 1.5em;"]{◊p{(2)}}
     ◊td[#:style "width: 1.5em;"]{◊p{a.}}
-    ◊td{◊p{Mary sees herself → ◊span[#:style "font-variant: small-caps;"]{see(mary, mary)}}}
+    ◊td{◊p{Mary sees herself → ◊span[#:class "small-cap"]{see(mary, mary)}}}
   }
   ◊tr{
     ◊td{}
     ◊td[#:style "width: 1.5em;"]{◊p{b.}}
-    ◊td{◊p{Alice sees herself → ◊span[#:style "font-variant: small-caps;"]{see(alice, alice)}}}
+    ◊td{◊p{Alice sees herself → ◊span[#:class "small-cap"]{see(alice, alice)}}}
   }
 }
 
-In these sentences, the interpretation of the reflexive is not a constant that can be combined with the meaning of the surrounding elements. Rather, a reflexive object must be interpreted as identical to the meaning of verb’s subject. Of course, a network could learn a context-sensitive interpretation of a reflexive, so that for any sentence with ◊em{Mary} as its subject, the reflexive is interpreted as ◊span[#:style "font-variant: small-caps;"]{mary}, and with ◊em{Alice} as its subject it is interpreted as ◊span[#:style "font-variant: small-caps;"]{alice}. However, such piecemeal learning of reflexive meaning will not support generalization to sentences involving a subject that has not been encountered as the antecedent of a reflexive during training, even if the interpretation of the subject has occurred elsewhere. What is needed instead is an interpretation of the reflexive that is characterized not as a specific (sequence of) output token(s), but rather as an abstract instruction to duplicate the interpretation of the subject. Such an abstraction requires more than the “jigsaw puzzle” approach to meaning that simpler sentences afford.
+In these sentences, the interpretation of the reflexive is not a constant that can be combined with the meaning of the surrounding elements. Rather, a reflexive object must be interpreted as identical to the meaning of verb’s subject. Of course, a network could learn a context-sensitive interpretation of a reflexive, so that for any sentence with ◊em{Mary} as its subject, the reflexive is interpreted as ◊span[#:class "small-cap"]{mary}, and with ◊em{Alice} as its subject it is interpreted as ◊span[#:class "small-cap"]{alice}. However, such piecemeal learning of reflexive meaning will not support generalization to sentences involving a subject that has not been encountered as the antecedent of a reflexive during training, even if the interpretation of the subject has occurred elsewhere. What is needed instead is an interpretation of the reflexive that is characterized not as a specific (sequence of) output token(s), but rather as an abstract instruction to duplicate the interpretation of the subject. Such an abstraction requires more than the “jigsaw puzzle” approach to meaning that simpler sentences afford.
 
 Marcus (1998) argues that this kind of abstraction, which he takes to require the use of algebraic variables to assert identity, is beyond the capacity of recurrent neural networks. Marcus’s demonstration involves a simple recurrent network (SRN, Elman 1990) language model that is trained to predict the next word over a corpus of sentences of the following form:
 
@@ -74,7 +73,7 @@ Marcus (1998) argues that this kind of abstraction, which he takes to require th
 
 All sentences in this training set have identical subject and object nouns. Marcus shows, however, that the resulting trained network does not correctly predict the subject noun when tested with a novel preamble ‘◊em{A book is a...}’. Though intriguing, this demonstration is not entirely convincing: since the noun occurring in the novel preamble, ◊em{book} in our example, did not occur in the training data, there is no way that the network could possibly have known which (one-hot represented) output should correspond to the reflexive for a sentence containing the novel (one-hot represented) subject noun, even if the network did successfully encode an identity relation between subject and object.
 
-Frank et al. (2013) explore a related task in the context of SRN interpretation of reflexives. In their experiments, SRNs were trained to map input words to corresponding semantic symbols that are output on the same time step in which a word is presented. For most words in the vocabulary, this is a simple task: the desired output is a constant function of the input (◊em{Mary} corresponds to ◊span[#:style "font-variant: small-caps;"]{mary}, ◊em{sees} to ◊span[#:style "font-variant: small-caps;"]{see}, etc.). For reflexives however, the target output depends on the subject that occurs earlier in the sentence. Frank et al. tested the network’s ability to interpret a reflexive in sentences containing a subject that had not occurred as a reflexive’s antecedent during training. However, unlike Marcus’ task, this subject and its corresponding semantic symbol did occur in other (non-reflexive) contexts in the training data, and therefore was in the realm of possible inputs and outputs for the network. Nonetheless, none of the SRNs that they trained succeeded at this task for even a single test example.
+Frank et al. (2013) explore a related task in the context of SRN interpretation of reflexives. In their experiments, SRNs were trained to map input words to corresponding semantic symbols that are output on the same time step in which a word is presented. For most words in the vocabulary, this is a simple task: the desired output is a constant function of the input (◊em{Mary} corresponds to ◊span[#:class "small-cap"]{mary}, ◊em{sees} to ◊span[#:class "small-cap"]{see}, etc.). For reflexives however, the target output depends on the subject that occurs earlier in the sentence. Frank et al. tested the network’s ability to interpret a reflexive in sentences containing a subject that had not occurred as a reflexive’s antecedent during training. However, unlike Marcus’ task, this subject and its corresponding semantic symbol did occur in other (non-reflexive) contexts in the training data, and therefore was in the realm of possible inputs and outputs for the network. Nonetheless, none of the SRNs that they trained succeeded at this task for even a single test example.
 
 Since those experiments were conducted, substantial advances have been made on recurrent neural network architectures, some of which have been crucial in the success of practical NLP systems.
 
@@ -106,7 +105,7 @@ In the first experiment, we directly test whether or not networks can generalize
 ◊table[#:class "ex"]{
   ◊tr{
     ◊td[#:style "width: 1.5em;"]{◊p{(4)}}
-    ◊td{◊p{Alice ◊em{verbs} herself → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(alice, alice)}}}
+    ◊td{◊p{Alice ◊em{verbs} herself → ◊em{verb}◊span[#:class "small-cap"]{(alice, alice)}}}
   }
 }
 
@@ -123,7 +122,7 @@ While the networks in Experiment 1 are not trained on sentences of the form show
 ◊table[#:class "ex"]{
   ◊tr{
     ◊td[#:style "width: 1.5em;"]{◊p{(5)}}
-    ◊td{◊p{Alice ◊em{verbs} Alice → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(alice, alice)}}}
+    ◊td{◊p{Alice ◊em{verbs} Alice → ◊em{verb}◊span[#:class "small-cap"]{(alice, alice)}}}
   }
 }
 
@@ -135,18 +134,18 @@ All architectures except SRNs without attention generalize perfectly to the held
 
 ◊section{5. Experiment 3: Who’s Alice and who’s Claire?}
 
-So far, we have considered generalization of reflexive interpretation to a single new name. One possible explanation of the networks’ success is that they are simply defaulting to the (held-out) ◊span[#:style "font-variant: small-caps;"]{alice} interpretation when confronted with a new antecedent, as an elsewhere interpretation (but see Gandhi and Lake 2019 for reasons for skepticism). Alternatively, even if the network has acquired a generalized interpretation for reflexives, it may be possible that this happens only when the training data includes overwhelming lexical support (in Experiments 1 and 2, 25 out of the 26 names in our domain appeared in the training data as the antecedent of a reflexive). To explore the contexts under which networks can truly generalize to a range of new antecedents, we construct training datasets in which we progressively withhold more and more names in sentences of the forms shown in (6), i.e., those that were removed in Experiment 2. [1]
+So far, we have considered generalization of reflexive interpretation to a single new name. One possible explanation of the networks’ success is that they are simply defaulting to the (held-out) ◊span[#:class "small-cap"]{alice} interpretation when confronted with a new antecedent, as an elsewhere interpretation (but see Gandhi and Lake 2019 for reasons for skepticism). Alternatively, even if the network has acquired a generalized interpretation for reflexives, it may be possible that this happens only when the training data includes overwhelming lexical support (in Experiments 1 and 2, 25 out of the 26 names in our domain appeared in the training data as the antecedent of a reflexive). To explore the contexts under which networks can truly generalize to a range of new antecedents, we construct training datasets in which we progressively withhold more and more names in sentences of the forms shown in (6), i.e., those that were removed in Experiment 2. [1]
 
 ◊table[#:class "ex"]{
   ◊tr{
     ◊td[#:style "width: 1.5em;"]{◊p{(6)}}
     ◊td[#:style "width: 1.5em;"]{◊p{a.}}
-    ◊td{◊p{P ◊em{verbs} herself → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(p, p)}}}
+    ◊td{◊p{P ◊em{verbs} herself → ◊em{verb}◊span[#:class "small-cap"]{(p, p)}}}
   }
   ◊tr{
     ◊td{}
     ◊td[#:style "width: 1.5em;"]{◊p{b.}}
-    ◊td{◊p{P ◊em{verbs} P → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(p, p)}}}
+    ◊td{◊p{P ◊em{verbs} P → ◊em{verb}◊span[#:class "small-cap"]{(p, p)}}}
   }
 }
 
@@ -244,7 +243,7 @@ Experiment 4a starts by withholding sentences where ◊em{Alice} appears as the 
 ◊table[#:class "ex"]{
   ◊tr{
     ◊td[#:style "width: 1.5em;"]{◊p{(7)}}
-    ◊td{◊p{Alice ◊em{verbs} → ◊em{verb}◊span[#:style "font-variant: small-caps;"]{(alice)}}}
+    ◊td{◊p{Alice ◊em{verbs} → ◊em{verb}◊span[#:class "small-cap"]{(alice)}}}
   }
 }
 
@@ -432,16 +431,16 @@ Overall, as in Experiment 4, LSTMs with attention show the highest accuracy on t
 
 Because of their abstract meaning, reflexive anaphora present a distinctive challenge for semantic parsing that had been thought to be beyond the capabilities of recurrent networks. The experiments described here demonstrate that this was incorrect. Sequence-to-sequence networks with a range of recurrent unit types are in fact capable of learning an interpretation of reflexive pronouns that generalizes to novel antecedents. Our results also show that such generalization is nonetheless contingent on the appearance of the held-out antecedent in a variety of syntactic positions as well as the diversity of antecedents providing support for the reflexive generalization. Additionally successful generalization depends on the network architecture in ways that we do not fully understand. It is at present unknown whether the demands that any of these architecture impose on the learning environment for successful learning of reflexives are consistent with what children experience, but this could be explored with both corpus and experimental work. Future work will also be necessary to elucidate the nature of the networks’ representations of reflexive interpretation and to understand how they support lexical generalization (or not).
 
-The question we have explored here is related to, but distinct from, the issue of systematicity (Fodor and Pylyshyn, 1988; Hadley, 1994), according to which pieces of representations learned in distinct contexts can freely recombine. This issue has been addressed using sequence-to-sequence architectures in recent work with the synthetic SCAN robot command interpretation dataset (Lake and Baroni, 2018) and on language modeling (Kim and Linzen, 2020), in both cases with limited success. One aspect of the SCAN domain that is particularly relevant to reflexive interpretation is commands involving adverbial modifiers such as ◊em{twice}. Commands like ◊em{jump twice} must be interpreted by duplicating the meaning of the verb, i.e., as ◊span[#:style "font-variant: small-caps;"]{jump jump}, which is similar to what we require for the interpretation of the reflexive object, though in a way that does not require sensitivity to syntactic structure that we have not explored here. Recently, Lake (2019), Li et al. (2019) and Gordon et al. (2020) have proposed novel architectures that increase systematic behavior, and we look forward to exploring the degree to which these impact performance on reflexive interpretation.
+The question we have explored here is related to, but distinct from, the issue of systematicity (Fodor and Pylyshyn, 1988; Hadley, 1994), according to which pieces of representations learned in distinct contexts can freely recombine. This issue has been addressed using sequence-to-sequence architectures in recent work with the synthetic SCAN robot command interpretation dataset (Lake and Baroni, 2018) and on language modeling (Kim and Linzen, 2020), in both cases with limited success. One aspect of the SCAN domain that is particularly relevant to reflexive interpretation is commands involving adverbial modifiers such as ◊em{twice}. Commands like ◊em{jump twice} must be interpreted by duplicating the meaning of the verb, i.e., as ◊span[#:class "small-cap"]{jump jump}, which is similar to what we require for the interpretation of the reflexive object, though in a way that does not require sensitivity to syntactic structure that we have not explored here. Recently, Lake (2019), Li et al. (2019) and Gordon et al. (2020) have proposed novel architectures that increase systematic behavior, and we look forward to exploring the degree to which these impact performance on reflexive interpretation.
 
 Our current work has focused exclusively on recurrent networks, ranging from SRNs to GRUs and LSTMs. Recent work by Vaswani et al. (2017) shows that Transformer networks attain superior performance on a variety of sequence-to-sequence tasks while dispensing with recurrent units altogether. Examining both the performance and training characteristics of Transformers will allow us to compare the effects of attention and recurrence on the anaphora interpretation task. This is especially interesting given the impact that attention had on performance in our experiments.
 
-Finally, while our current experiments are revealing about the capacity of recurrent networks to learn generalizations about context-sensitive interpretation, there are nonetheless limited in a number of respects because of simplifications in the English fragment we use to create our synthetic data. Reflexives famously impose a structural requirement on their antecedents (c-command). In the following example, the reflexive’s antecedent must be ◊span[#:style "font-variant: small-caps;"]{student} and cannot be ◊span[#:style "font-variant: small-caps;"]{teacher}.
+Finally, while our current experiments are revealing about the capacity of recurrent networks to learn generalizations about context-sensitive interpretation, there are nonetheless limited in a number of respects because of simplifications in the English fragment we use to create our synthetic data. Reflexives famously impose a structural requirement on their antecedents (c-command). In the following example, the reflexive’s antecedent must be ◊span[#:class "small-cap"]{student} and cannot be ◊span[#:class "small-cap"]{teacher}.
 
 ◊table[#:class "ex"]{
   ◊tr{
     ◊td[#:style "width: 1.5em;"]{◊p{(8)}}
-    ◊td{◊p{The student near the teacher sees herself → ◊span[#:style "font-variant: small-caps;"]{see(student, student)}}}
+    ◊td{◊p{The student near the teacher sees herself → ◊span[#:class "small-cap"]{see(student, student)}}}
   }
 }
 

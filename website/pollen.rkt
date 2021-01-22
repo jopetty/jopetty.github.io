@@ -113,11 +113,27 @@
   (let* ((title     (select-from-metas 'title metas))
          (published (select-from-metas 'published metas))
          (post      (path->string output-path))
+         (blurb (select-from-metas 'blurb metas))
+         (author (select-from-metas 'author metas))
+         (author-txt (if author `(@," • " ,author) ""))
+         (meta-txt
+          `(p ((style "font-family: var(--sans-font); font-variant: small-caps; text-transform: lowercase; font-weight: 500; margin: 1ex 0 1.5ex 0;"))
+              (@ ,published ,author-txt )
+           )
+         )
+         (blurb-txt 
+          (if blurb `(@ ,blurb) "")
+         )
          (title-txt
-          (if title `(dd ,(link post title)) 
+          (if title `(h1 ,(link post title))
                     "")))
 
-    `(@ (dt ,published) ,title-txt )
+    `(@ (li (div 
+        (@ ,title-txt
+          ,meta-txt
+          ,blurb-txt)))
+        ;;; (hr [(class "pub-list-div")])
+        )
   ))
 
 (define (make-full-index d)
@@ -135,5 +151,5 @@
   (let* ((unsorted-files (filter indexable-source? (directory-list d #:build? #t)))
          (sorted-files (sort unsorted-files sort-by-modification))
          (summaries (map summarize sorted-files)) )
-    `(dl ,@summaries))
+    `(ul ((class "pub-list")) ,@summaries))
   )
